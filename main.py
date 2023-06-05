@@ -80,7 +80,7 @@ def register(*args):
     if len(content) == 0:
         builder(
             component(["Failed | Wrong username or password"], 0, 0, border=True)
-        ).build()aa.py
+        ).build()
     if len(content) == 1:
         account_name = username
         builder(component([username + " Connected"], 0, 0, border=True)).build()
