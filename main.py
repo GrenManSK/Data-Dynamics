@@ -10,9 +10,9 @@ import os
 load_dotenv(".env")
 
 
-HOST_NAME = "localhost"
-PORT = 3306
-USER = "root"
+HOST_NAME = os.getenv('HOST_NAME')
+PORT = os.getenv('DAT_PORT')
+USER = os.getenv('DAT_USER')
 PASSWORD = os.getenv('PASSWORD')
 DATABASE = os.getenv('DATABASE')
 
