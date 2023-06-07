@@ -4,13 +4,17 @@ from curses_builder import builder, component, cinput, init, history, history_nu
 import argparse
 from final.sql import SQLServer
 import hashlib
+from dotenv import load_dotenv
+import os
+
+load_dotenv(".env")
 
 
 HOST_NAME = "localhost"
 PORT = 3306
 USER = "root"
-PASSWORD = "password"
-DATABASE = "anime"
+PASSWORD = os.getenv('PASSWORD')
+DATABASE = os.getenv('DATABASE')
 
 server = SQLServer(
     HOST_NAME, port=PORT, user=USER, passwd=PASSWORD, database=DATABASE, log=True
