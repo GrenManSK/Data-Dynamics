@@ -209,7 +209,7 @@ def search_engine(query, data):
                     distance = Levenshtein.distance(
                         query_word.lower(), word.lower()
                     )
-                    if distance <= 2:
+                    if distance <= 1:
                         match = True
                         break
                     else:
