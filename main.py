@@ -173,7 +173,7 @@ def add_anime(*args):
             0,
             border=True,
         ),
-        cinput(LINES - 1, 0, "", {"": [0, 0, [add_anime_to_dat, ["args"]]]}, limit=1),
+        cinput(LINES - 1, 0, "", {"": [0, 0, [add_anime_to_dat, ["args"]]]}, limit=1, nof=True),
     ).build()
 
 
@@ -204,9 +204,18 @@ def search_engine(query, data):
         for text in item:
             words = text.lower().replace('"', "").replace("'", "").split()
             match = True
-            for query_word in query_words:
-                if query_word not in words:
-                    match = False
+            for times, query_word in enumerate(query_words):
+                for word in words:
+                    distance = Levenshtein.distance(
+                        query_word.lower(), word.lower()
+                    )
+                    if distance <= 2:
+                        match = True
+                        break
+                    else:
+                        match = False
+                        pass
+                if match:
                     break
 
             if match:
