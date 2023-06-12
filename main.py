@@ -168,7 +168,7 @@ def add_anime(*args):
 
     builder(
         component(
-            [*res, "Use a and index of anime"],
+            [*res],
             0,
             0,
             border=True,
