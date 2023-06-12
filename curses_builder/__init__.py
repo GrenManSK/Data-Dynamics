@@ -2,7 +2,7 @@ import curses
 import copy
 from random import randint
 
-VERSION = "1.0.0"
+VERSION = "1.0.1"
 AUTHOR = "GrenManSK"
 
 
@@ -162,6 +162,12 @@ class builder:
                     elif times == "function":
                         function = content
                         continue
+                    elif times == "limit":
+                        limit = content
+                        continue
+                    elif times == "nof":
+                        nof = content
+                        continue
                     elif times == "width":
                         width = content
                         continue
@@ -213,6 +219,7 @@ class builder:
                         else:
                             string(y, x, int(COLS - 1 - x) * " ")
                     if konecna:
+                        limit -= 1
                         if not ikey == "":
                             vstup = vstup[1:-1]
                         else:
@@ -245,9 +252,15 @@ class builder:
                                         command = function[func][2]
                                     elif len(function[func][2]) == 2:
                                         if function[func][2][1][0] == "args":
-                                            func_args = vstup.split(" ", 1)[1].split(
-                                                " "
-                                            )
+                                            try:
+                                                func_args = vstup.split(" ", 1)[1].split(
+                                                    " "
+                                                )
+                                            except IndexError:
+                                                if nof:
+                                                    func_args = vstup
+                                                else:
+                                                    raise ValueError
                                             func_args = list(
                                                 filter(("").__ne__, func_args)
                                             )
@@ -301,6 +314,8 @@ class builder:
                                 self.add_history(window)
                         func_args = None
                         vstup = ""
+                    if limit == 0:
+                        break
                     if end:
                         break
                 self.add_history(window)
@@ -373,7 +388,15 @@ class component(builder):
 
 class cinput(builder):
     def __init__(
-        self, y: int, x: int, key: str, function: dict, width=None, border: bool = False
+        self,
+        y: int,
+        x: int,
+        key: str,
+        function: dict,
+        width=None,
+        border: bool = False,
+        limit=-1,
+        nof = False
     ):
         self.y = y
         self.x = x
@@ -381,6 +404,8 @@ class cinput(builder):
         self.border = border
         self.key = key
         self.function = function
+        self.limit = limit
+        self.nof = nof
 
     def __call__(self) -> dict:
         window = {
@@ -391,6 +416,8 @@ class cinput(builder):
             "border": self.border,
             "function": self.function,
             "width": self.width,
+            "limit": self.limit,
+            "nof": self.nof
         }
         width = self.width
         if self.border:
