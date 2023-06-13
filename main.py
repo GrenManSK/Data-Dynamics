@@ -37,6 +37,8 @@ server = SQLServer(
 
 server.connect()
 
+PRIVILEGES = ["U", "A"]
+
 ACCOUNT_NAME = None
 ACCOUNT_ID = None
 PRIVILEGE = None
@@ -83,6 +85,7 @@ def show_anime() -> None:
     builder(component(content, 0, 0, border=True)).build()
 
 
+def logout() -> None:
     global ACCOUNT_NAME
     global id
     global PRIVILEGE
@@ -118,6 +121,10 @@ def login(*args) -> None:
             component(["Failed | Wrong username or password"], 0, 0, border=True)
         ).build()
     if len(content) == 1:
+        assert isinstance(content[0][0], int), "Account id should be an integer"
+        assert (
+            isinstance(content[0][1], str) and content[0][1] in PRIVILEGES
+        ), "Invalid privilege"
         ACCOUNT_NAME = username
         ACCOUNT_ID = content[0][0]
         PRIVILEGE = content[0][1]
@@ -125,8 +132,6 @@ def login(*args) -> None:
             priv = "User"
         elif PRIVILEGE == "A":
             priv = "Administrator"
-        else:
-            raise ValueError("Invalid PRIVILEGE")
         builder(
             component([username + " Connected as " + priv], 0, 0, border=True)
         ).build()
@@ -145,9 +150,16 @@ def register(*args) -> None:
     username = args.username.replace("_", " ")
     password = args.password
 
+    assert len(username) > 0, "Username must not be empty"
+    assert len(password) > 0, "Password must not be empty"
+    
     ACCOUNT_ID = (
         max([i[0] for i in server.execute("SELECT id FROM name", info=False)]) + 1
     )
+    
+    assert server.execute(
+        f"SELECT * FROM name WHERE id='{ACCOUNT_ID}'", info=False
+    ) in [[], None], "Server error"
     
     ACCOUNT_NAME = username
 
