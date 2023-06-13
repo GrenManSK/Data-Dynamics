@@ -40,13 +40,14 @@ server.connect()
 ACCOUNT_NAME = None
 ACCOUNT_ID = None
 PRIVILEGE = None
+
 date = datetime.now().strftime("%Y-%m-%d")
 
 _return = None
 anime_status = None
 
 
-def main(stdscr):
+def main(stdscr) -> None:
     global COLS
     global LINES
     COLS = curses.COLS
@@ -68,10 +69,9 @@ def main(stdscr):
             },
         )
     ).build()
-    pass
 
 
-def show_anime():
+def show_anime() -> None:
     if ACCOUNT_NAME is None:
         builder(component(["You are not logged in"], 0, 0, border=True)).build()
         return
@@ -83,7 +83,6 @@ def show_anime():
     builder(component(content, 0, 0, border=True)).build()
 
 
-def logout():
     global ACCOUNT_NAME
     global id
     global PRIVILEGE
@@ -96,7 +95,7 @@ def logout():
     builder(component(["You are logged out"], 0, 0, border=True)).build()
 
 
-def login(*args):
+def login(*args) -> None:
     global ACCOUNT_ID
     global ACCOUNT_NAME
     global PRIVILEGE
@@ -113,6 +112,7 @@ def login(*args):
         f"SELECT n.id, n.privilege FROM name AS n WHERE n.username='{username}' AND n.passw='{hashlib.sha3_256(bytes(password, encoding='utf-8')).hexdigest()}'",
         info=False,
     )
+
     if len(content) == 0:
         builder(
             component(["Failed | Wrong username or password"], 0, 0, border=True)
@@ -132,7 +132,7 @@ def login(*args):
         ).build()
 
 
-def register(*args):
+def register(*args) -> None:
     global ACCOUNT_NAME
     global ACCOUNT_ID
     if ACCOUNT_NAME is not None:
@@ -144,9 +144,11 @@ def register(*args):
     args = parser.parse_args(args)
     username = args.username.replace("_", " ")
     password = args.password
+
     ACCOUNT_ID = (
         max([i[0] for i in server.execute("SELECT id FROM name", info=False)]) + 1
     )
+    
     ACCOUNT_NAME = username
 
     server.execute(
@@ -156,7 +158,7 @@ def register(*args):
     builder(component([f"Sucess | {username} created"], 0, 0, border=True)).build()
 
 
-def add_anime(*args):
+def add_anime(*args) -> None:
     global LINES
     global _return
     global anime_status
@@ -211,7 +213,7 @@ def add_anime(*args):
     ).build()
 
 
-def add_anime_to_dat(*args):
+def add_anime_to_dat(*args) -> None:
     global _return
     global ACCOUNT_ID
     global anime_status
@@ -262,7 +264,7 @@ def add_anime_to_dat(*args):
     _return = None
 
 
-def search_engine(query, data):
+def search_engine(query, data) -> None | list[str]:
     query_words = query.lower().split()
 
     results = []
@@ -292,7 +294,7 @@ def search_engine(query, data):
         print("No results found for '{}'".format(query))
 
 
-def is_available(id):
+def is_available(id) -> bool:
     global ACCOUNT_ID
     _returned = server.execute(
         f"SELECT * FROM wachlist WHERE id='{ACCOUNT_ID}' AND anime_id='{id}'",
