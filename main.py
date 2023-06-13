@@ -234,14 +234,14 @@ def add_anime_to_dat(*args) -> None:
         ][0]
     )
 
-    available = is_available(id)
+    available = not is_available(id)
 
-    if not available:
+    if available:
         server.execute(
             f"INSERT INTO `watchlist` (`id`, `anime_id`, `status`) VALUES ('{ACCOUNT_ID}', '{id}', '{anime_status}') ",
             info=False,
         )
-    if available:
+    elif not available:
         server.execute(
             f"DELETE FROM watchlist WHERE id='{ACCOUNT_ID}' AND anime_id='{id}'",
             info=False,
