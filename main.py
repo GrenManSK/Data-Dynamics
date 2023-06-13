@@ -37,9 +37,9 @@ server = SQLServer(
 
 server.connect()
 
-account_name = None
-account_id = None
-privilege = None
+ACCOUNT_NAME = None
+ACCOUNT_ID = None
+PRIVILEGE = None
 date = datetime.now().strftime("%Y-%m-%d")
 
 _return = None
@@ -72,12 +72,11 @@ def main(stdscr):
 
 
 def show_anime():
-    if account_name is None:
+    if ACCOUNT_NAME is None:
         builder(component(["You are not logged in"], 0, 0, border=True)).build()
         return
-    username = account_name
     content = server.execute(
-        f"SELECT a.title, w.status FROM anime AS a JOIN watchlist AS w ON a.id=w.anime_id JOIN name AS n ON w.id=n.id WHERE n.username='{username}'",
+        f"SELECT a.title, w.status FROM anime AS a JOIN watchlist AS w ON a.id=w.anime_id JOIN name AS n ON w.id=n.id WHERE n.username='{ACCOUNT_NAME}'",
         info=False,
     )
     content = [f"{i[0]} | {i[1]}" for i in content]
@@ -85,22 +84,23 @@ def show_anime():
 
 
 def logout():
-    global account_name
+    global ACCOUNT_NAME
     global id
-    if account_name is None:
+    global PRIVILEGE
+    if ACCOUNT_NAME is None:
         builder(component(["You are not logged in"], 0, 0, border=True)).build()
         return
-    account_name = None
+    ACCOUNT_NAME = None
     id = None
-    privilege = None
+    PRIVILEGE = None
     builder(component(["You are logged out"], 0, 0, border=True)).build()
 
 
 def login(*args):
-    global account_id
-    global account_name
-    global privilege
-    if account_name is not None:
+    global ACCOUNT_ID
+    global ACCOUNT_NAME
+    global PRIVILEGE
+    if ACCOUNT_NAME is not None:
         builder(component(["Failed | Already logged in"], 0, 0, border=True)).build()
         return
     parser = argparse.ArgumentParser()
@@ -118,24 +118,24 @@ def login(*args):
             component(["Failed | Wrong username or password"], 0, 0, border=True)
         ).build()
     if len(content) == 1:
-        account_name = username
-        account_id = content[0][0]
-        privilege = content[0][1]
-        if privilege == "U":
+        ACCOUNT_NAME = username
+        ACCOUNT_ID = content[0][0]
+        PRIVILEGE = content[0][1]
+        if PRIVILEGE == "U":
             priv = "User"
-        elif privilege == "A":
+        elif PRIVILEGE == "A":
             priv = "Administrator"
         else:
-            raise ValueError("Invalid privilege")
+            raise ValueError("Invalid PRIVILEGE")
         builder(
             component([username + " Connected as " + priv], 0, 0, border=True)
         ).build()
 
 
 def register(*args):
-    global account_name
-    global account_id
-    if account_name is not None:
+    global ACCOUNT_NAME
+    global ACCOUNT_ID
+    if ACCOUNT_NAME is not None:
         builder(component(["Failed | Already logged in"], 0, 0, border=True)).build()
         return
     parser = argparse.ArgumentParser()
@@ -144,13 +144,13 @@ def register(*args):
     args = parser.parse_args(args)
     username = args.username.replace("_", " ")
     password = args.password
-    account_id = (
+    ACCOUNT_ID = (
         max([i[0] for i in server.execute("SELECT id FROM name", info=False)]) + 1
     )
-    account_name = username
+    ACCOUNT_NAME = username
 
     server.execute(
-        f"INSERT INTO `name` (`id`, `username`, `joined`, `passw`) VALUES ('{account_id}', '{username}', '{date}', '{hashlib.sha3_256(bytes(password, encoding='utf-8')).hexdigest()}') ",
+        f"INSERT INTO `name` (`id`, `username`, `joined`, `passw`) VALUES ('{ACCOUNT_ID}', '{username}', '{date}', '{hashlib.sha3_256(bytes(password, encoding='utf-8')).hexdigest()}') ",
         info=False,
     )
     builder(component([f"Sucess | {username} created"], 0, 0, border=True)).build()
@@ -160,7 +160,7 @@ def add_anime(*args):
     global LINES
     global _return
     global anime_status
-    if account_name is None:
+    if ACCOUNT_NAME is None:
         builder(component(["You are not logged in"], 0, 0, border=True)).build()
         return
     parser = argparse.ArgumentParser()
@@ -213,7 +213,7 @@ def add_anime(*args):
 
 def add_anime_to_dat(*args):
     global _return
-    global account_id
+    global ACCOUNT_ID
     global anime_status
     parser = argparse.ArgumentParser()
     parser.add_argument("anime")
@@ -236,16 +236,16 @@ def add_anime_to_dat(*args):
 
     if not available:
         server.execute(
-            f"INSERT INTO `watchlist` (`id`, `anime_id`, `status`) VALUES ('{account_id}', '{id}', '{anime_status}') ",
+            f"INSERT INTO `watchlist` (`id`, `anime_id`, `status`) VALUES ('{ACCOUNT_ID}', '{id}', '{anime_status}') ",
             info=False,
         )
     if available:
         server.execute(
-            f"DELETE FROM watchlist WHERE id='{account_id}' AND anime_id='{id}'",
+            f"DELETE FROM watchlist WHERE id='{ACCOUNT_ID}' AND anime_id='{id}'",
             info=False,
         )
         server.execute(
-            f"INSERT INTO `watchlist` (`id`, `anime_id`, `status`) VALUES ('{account_id}', '{id}', '{anime_status}') ",
+            f"INSERT INTO `watchlist` (`id`, `anime_id`, `status`) VALUES ('{ACCOUNT_ID}', '{id}', '{anime_status}') ",
             info=False,
         )
 
@@ -293,9 +293,9 @@ def search_engine(query, data):
 
 
 def is_available(id):
-    global account_id
+    global ACCOUNT_ID
     _returned = server.execute(
-        f"SELECT * FROM wachlist WHERE id='{account_id}' AND anime_id='{id}'",
+        f"SELECT * FROM wachlist WHERE id='{ACCOUNT_ID}' AND anime_id='{id}'",
         info=False,
     )
     if _returned is None:
@@ -309,4 +309,4 @@ def is_available(id):
 wrapper(main)
 
 
-# DELETE FROM watchlist WHERE id='account_id' AND anime_id='id'
+# DELETE FROM watchlist WHERE id='ACCOUNT_ID' AND anime_id='id'
