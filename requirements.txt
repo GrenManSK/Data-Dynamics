@@ -1,3 +1,4 @@
 windows_curses
 argparse
 Levenshtein
+dotenv
