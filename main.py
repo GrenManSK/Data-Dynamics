@@ -1,6 +1,6 @@
 import curses
 from curses import wrapper
-from curses_builder import builder, component, cinput, init, history, history_number
+from curses_builder import builder, component, cinput, init
 import argparse
 from final.sql import SQLServer
 import hashlib
@@ -28,10 +28,11 @@ server = SQLServer(
 server.connect()
 
 account_name = None
-
-id = None
+account_id = None
 date = datetime.now().strftime("%Y-%m-%d")
+
 _return = None
+anime_status = None
 
 
 def main(stdscr):
@@ -84,7 +85,7 @@ def logout():
 
 
 def login(*args):
-    global id
+    global account_id
     global account_name
     if account_name is not None:
         builder(component(["Failed | Already logged in"], 0, 0, border=True)).build()
@@ -105,13 +106,13 @@ def login(*args):
         ).build()
     if len(content) == 1:
         account_name = username
-        id = content[0][2]
+        account_id = content[0][2]
         builder(component([username + " Connected"], 0, 0, border=True)).build()
 
 
 def register(*args):
     global account_name
-    global id
+    global account_id
     if account_name is not None:
         builder(component(["Failed | Already logged in"], 0, 0, border=True)).build()
         return
@@ -121,10 +122,13 @@ def register(*args):
     args = parser.parse_args(args)
     username = args.username.replace("_", " ")
     password = args.password
-    id = max([i[0] for i in server.execute("SELECT id FROM name", info=False)]) + 1
+    account_id = (
+        max([i[0] for i in server.execute("SELECT id FROM name", info=False)]) + 1
+    )
+    account_name = username
 
     server.execute(
-        f"INSERT INTO `name` (`id`, `username`, `joined`, `passw`) VALUES ('{id}', '{username}', '{date}', '{hashlib.sha3_256(bytes(password, encoding='utf-8')).hexdigest()}') ",
+        f"INSERT INTO `name` (`id`, `username`, `joined`, `passw`) VALUES ('{account_id}', '{username}', '{date}', '{hashlib.sha3_256(bytes(password, encoding='utf-8')).hexdigest()}') ",
         info=False,
     )
     builder(component([f"Sucess | {username} created"], 0, 0, border=True)).build()
@@ -133,6 +137,7 @@ def register(*args):
 def add_anime(*args):
     global LINES
     global _return
+    global anime_status
     if account_name is None:
         builder(component(["You are not logged in"], 0, 0, border=True)).build()
         return
@@ -142,9 +147,9 @@ def add_anime(*args):
 
     args = parser.parse_args(args)
     anime = args.anime.replace("_", " ")
-    status = args.status
+    anime_status = args.status
 
-    if not status in ["completed", "dropped", "watching", "planning"]:
+    if not anime_status in ["completed", "dropped", "watching", "planning"]:
         builder(
             component(
                 [
@@ -173,27 +178,66 @@ def add_anime(*args):
             0,
             border=True,
         ),
-        cinput(LINES - 1, 0, "", {"": [0, 0, [add_anime_to_dat, ["args"]]]}, limit=1, nof=True),
+        cinput(
+            LINES - 1,
+            0,
+            "",
+            {"": [0, 0, [add_anime_to_dat, ["args"]]]},
+            limit=1,
+            nof=True,
+        ),
     ).build()
 
 
 def add_anime_to_dat(*args):
     global _return
+    global account_id
+    global anime_status
     parser = argparse.ArgumentParser()
     parser.add_argument("anime")
 
     args = parser.parse_args(args)
     anime = int(args.anime)
+    anime = str(_return[anime])
+
+    id = str(
+        [
+            i[0]
+            for i in server.execute(
+                f"SELECT id FROM anime WHERE title='{anime}' OR ENG_title='{anime}'",
+                info=False,
+            )
+        ][0]
+    )
+
+    available = is_available(id)
+
+    if not available:
+        server.execute(
+            f"INSERT INTO `watchlist` (`id`, `anime_id`, `status`) VALUES ('{account_id}', '{id}', '{anime_status}') ",
+            info=False,
+        )
+    if available:
+        server.execute(
+            f"DELETE FROM watchlist WHERE id='{account_id}' AND anime_id='{id}'",
+            info=False,
+        )
+        server.execute(
+            f"INSERT INTO `watchlist` (`id`, `anime_id`, `status`) VALUES ('{account_id}', '{id}', '{anime_status}') ",
+            info=False,
+        )
+
     builder(
         component(
-            [
-                _return[anime],
-            ],
+            [anime, id],
             0,
             0,
             border=True,
         ),
     ).build()
+
+    anime_status = None
+    _return = None
 
 
 def search_engine(query, data):
@@ -204,11 +248,9 @@ def search_engine(query, data):
         for text in item:
             words = text.lower().replace('"', "").replace("'", "").split()
             match = True
-            for times, query_word in enumerate(query_words):
+            for query_word in query_words:
                 for word in words:
-                    distance = Levenshtein.distance(
-                        query_word.lower(), word.lower()
-                    )
+                    distance = Levenshtein.distance(query_word.lower(), word.lower())
                     if distance <= 1:
                         match = True
                         break
@@ -220,6 +262,7 @@ def search_engine(query, data):
 
             if match:
                 results.append(text)
+                break
 
     if results:
         return results
@@ -227,4 +270,21 @@ def search_engine(query, data):
         print("No results found for '{}'".format(query))
 
 
+def is_available(id):
+    global account_id
+    _returned = server.execute(
+        f"SELECT * FROM wachlist WHERE id='{account_id}' AND anime_id='{id}'",
+        info=False,
+    )
+    if _returned is None:
+        return True
+    for i in _returned:
+        if len(i) == 0:
+            return True
+    return False
+
+
 wrapper(main)
+
+
+# DELETE FROM watchlist WHERE id='account_id' AND anime_id='id'
