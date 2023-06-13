@@ -3,7 +3,7 @@ Richard Melniček
 Samuel Pribulla
 Juraj Durkáč
 
-Data=Dynamics
+Data-Dynamics
 
 13.06.2023
 """
