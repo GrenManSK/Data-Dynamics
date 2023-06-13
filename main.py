@@ -152,15 +152,15 @@ def register(*args) -> None:
 
     assert len(username) > 0, "Username must not be empty"
     assert len(password) > 0, "Password must not be empty"
-    
+
     ACCOUNT_ID = (
         max([i[0] for i in server.execute("SELECT id FROM name", info=False)]) + 1
     )
-    
+
     assert server.execute(
         f"SELECT * FROM name WHERE id='{ACCOUNT_ID}'", info=False
     ) in [[], None], "Server error"
-    
+
     ACCOUNT_NAME = username
 
     server.execute(
