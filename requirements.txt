@@ -1,4 +1,4 @@
 windows_curses
 argparse
 Levenshtein
-dotenv
+python-dotenv
