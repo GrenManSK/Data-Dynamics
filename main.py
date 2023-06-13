@@ -39,6 +39,7 @@ server.connect()
 
 account_name = None
 account_id = None
+privilege = None
 date = datetime.now().strftime("%Y-%m-%d")
 
 _return = None
@@ -91,12 +92,14 @@ def logout():
         return
     account_name = None
     id = None
+    privilege = None
     builder(component(["You are logged out"], 0, 0, border=True)).build()
 
 
 def login(*args):
     global account_id
     global account_name
+    global privilege
     if account_name is not None:
         builder(component(["Failed | Already logged in"], 0, 0, border=True)).build()
         return
@@ -107,7 +110,7 @@ def login(*args):
     username = args.username.replace("_", " ")
     password = args.password
     content = server.execute(
-        f"SELECT n.username, n.passw, n.id FROM name AS n WHERE n.username='{username}' AND n.passw='{hashlib.sha3_256(bytes(password, encoding='utf-8')).hexdigest()}'",
+        f"SELECT n.id, n.privilege FROM name AS n WHERE n.username='{username}' AND n.passw='{hashlib.sha3_256(bytes(password, encoding='utf-8')).hexdigest()}'",
         info=False,
     )
     if len(content) == 0:
@@ -116,8 +119,17 @@ def login(*args):
         ).build()
     if len(content) == 1:
         account_name = username
-        account_id = content[0][2]
-        builder(component([username + " Connected"], 0, 0, border=True)).build()
+        account_id = content[0][0]
+        privilege = content[0][1]
+        if privilege == "U":
+            priv = "User"
+        elif privilege == "A":
+            priv = "Administrator"
+        else:
+            raise ValueError("Invalid privilege")
+        builder(
+            component([username + " Connected as " + priv], 0, 0, border=True)
+        ).build()
 
 
 def register(*args):
