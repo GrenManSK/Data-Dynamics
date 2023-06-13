@@ -1,3 +1,13 @@
+"""_summary_
+Richard Melniček
+Samuel Pribulla
+Juraj Durkáč
+
+Data=Dynamics
+
+13.06.2023
+"""
+
 import curses
 from curses import wrapper
 from curses_builder import builder, component, cinput, init
