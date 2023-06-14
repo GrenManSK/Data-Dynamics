@@ -62,6 +62,7 @@ def main(stdscr) -> None:
             0,
             ":",
             {
+                "help": "help",
                 "q": "break",
                 "r": "reset",
                 "login": [0, 5, [login, ["args"]], ["username", "password"]],
