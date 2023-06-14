@@ -68,8 +68,149 @@ def main(stdscr) -> None:
                 "show_anime": [0, 10, show_anime],
                 "logout": [0, 6, logout],
                 "add_anime": [0, 9, [add_anime, ["args"]]],
+                "search_staff": [0, 12, [search_staff, ["args"]]],
+                "search_char": [0, 11, [search_char, ["args"]]],
             },
         )
+    ).build()
+
+
+def get_animes() -> list[list[str, str]]:
+    return [
+        [i[0], i[1]]
+        for i in server.execute("SELECT title, ENG_title FROM anime", info=False)
+    ]
+
+
+def get_id(anime) -> str:
+    return str(
+        [
+            i[0]
+            for i in server.execute(
+                f"SELECT id FROM anime WHERE title='{anime}' OR ENG_title='{anime}'",
+                info=False,
+            )
+        ][0]
+    )
+
+
+def _search_char(*args):
+    global _return
+    parser = argparse.ArgumentParser()
+    parser.add_argument("anime")
+
+    args = parser.parse_args(args)
+    anime = int(args.anime)
+    anime = str(_return[anime])
+
+    id = get_id(anime)
+
+    characters = server.execute(
+        f"SELECT c.name, c.role, c.voice_actor FROM characters AS c JOIN anime AS a ON a.id=c.anime_id WHERE a.id='{id}'",
+        info=False,
+    )
+
+    _characters = []
+    for i in characters:
+        __staff = ""
+        for j in i:
+            __staff += f" {j} |"
+        _characters.append(__staff[:-1])
+
+    builder(component([*_characters], 0, 0, border=True)).build()
+
+
+def search_char(*args):
+    global _return
+    if ACCOUNT_NAME is None:
+        builder(component(["You are not logged in"], 0, 0, border=True)).build()
+        return
+    parser = argparse.ArgumentParser()
+    parser.add_argument("anime")
+    args = parser.parse_args(args)
+    anime = args.anime.replace("_", " ")
+
+    animes = get_animes()
+    _return = search_engine(anime, animes)
+    res = []
+    for times, i in enumerate(_return):
+        res.append(f"{times} - {i}")
+
+    builder(
+        component(
+            [*res],
+            0,
+            0,
+            border=True,
+        ),
+        cinput(
+            LINES - 1,
+            0,
+            "",
+            {"": [0, 0, [_search_char, ["args"]]]},
+            limit=1,
+            nof=True,
+        ),
+    ).build()
+
+
+def _search_staff(*args):
+    global _return
+    parser = argparse.ArgumentParser()
+    parser.add_argument("anime")
+
+    args = parser.parse_args(args)
+    anime = int(args.anime)
+    anime = str(_return[anime])
+
+    id = get_id(anime)
+
+    staff = server.execute(
+        f"SELECT s.name, s.role FROM staff AS s JOIN anime AS a ON a.id=s.anime_id WHERE a.id='{id}'",
+        info=False,
+    )
+
+    _staff = []
+    for i in staff:
+        __staff = ""
+        for j in i:
+            __staff += f" {j} |"
+        _staff.append(__staff[:-1])
+
+    builder(component([*_staff], 0, 0, border=True)).build()
+
+
+def search_staff(*args):
+    global _return
+    if ACCOUNT_NAME is None:
+        builder(component(["You are not logged in"], 0, 0, border=True)).build()
+        return
+    parser = argparse.ArgumentParser()
+    parser.add_argument("anime")
+    args = parser.parse_args(args)
+    anime = args.anime.replace("_", " ")
+
+    animes = get_animes()
+    _return = search_engine(anime, animes)
+    res = []
+    for times, i in enumerate(_return):
+        res.append(f"{times} - {i}")
+
+    builder(
+        component(
+            [*res],
+            0,
+            0,
+            border=True,
+        ),
+        cinput(
+            LINES - 1,
+            0,
+            "",
+            {"": [0, 0, [_search_staff, ["args"]]]},
+            limit=1,
+            nof=True,
+        ),
     ).build()
 
 
@@ -198,10 +339,7 @@ def add_anime(*args) -> None:
         ).build()
         return
 
-    animes = [
-        [i[0], i[1]]
-        for i in server.execute("SELECT title, ENG_title FROM anime", info=False)
-    ]
+    animes = get_animes()
     _return = search_engine(anime, animes)
     res = []
     for times, i in enumerate(_return):
@@ -236,15 +374,7 @@ def add_anime_to_dat(*args) -> None:
     anime = int(args.anime)
     anime = str(_return[anime])
 
-    id = str(
-        [
-            i[0]
-            for i in server.execute(
-                f"SELECT id FROM anime WHERE title='{anime}' OR ENG_title='{anime}'",
-                info=False,
-            )
-        ][0]
-    )
+    id = get_id(anime)
 
     available = not is_available(id)
 
