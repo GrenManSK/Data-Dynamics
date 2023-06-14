@@ -2,7 +2,7 @@ import curses
 import copy
 from random import randint
 
-VERSION = "1.0.1"
+VERSION = "1.1.0"
 AUTHOR = "GrenManSK"
 
 
