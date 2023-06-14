@@ -99,7 +99,7 @@ def _search_char(*args):
     parser = argparse.ArgumentParser()
     parser.add_argument("anime")
 
-    args = parser.parse_args(args)
+    args = parser.parse_args(["".join(args)])
     anime = int(args.anime)
     anime = str(_return[anime])
 
@@ -159,7 +159,7 @@ def _search_staff(*args):
     parser = argparse.ArgumentParser()
     parser.add_argument("anime")
 
-    args = parser.parse_args(args)
+    args = parser.parse_args(["".join(args)])
     anime = int(args.anime)
     anime = str(_return[anime])
 
