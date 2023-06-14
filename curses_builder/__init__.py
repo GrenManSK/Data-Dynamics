@@ -209,7 +209,7 @@ class builder:
                         arg_hist = {}
                     if vstup[1:] in function.keys():
                         _func = vstup[1:]
-                        if function[_func] == 'help':
+                        if function[_func] == "help":
                             _help = ""
                             for i in function.keys():
                                 _help += f" {i} |"
