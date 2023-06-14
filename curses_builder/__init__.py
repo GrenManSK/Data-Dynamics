@@ -191,7 +191,7 @@ class builder:
                     func_reset = False
                     konecna = False
                     if not vstup[1:pocet] in function.keys() and is_func:
-                        string(y - 1, x + pocet + 2, len(function[_func][3]) * " ")
+                        string(y - 1, x, COLS * " ")
                         string(y, x + len(_func) + 1, "")
                         is_func = False
                     if vstup[1:] in function.keys():
