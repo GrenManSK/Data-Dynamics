@@ -415,17 +415,15 @@ def search_engine(query, data) -> None | list[str]:
             words = text.lower().replace('"', "").replace("'", "").split()
             match = True
             for query_word in query_words:
+                word_matched = False
                 for word in words:
-                    distance = Levenshtein.distance(query_word.lower(), word.lower())
+                    distance = Levenshtein.distance(query_word, word)
                     if distance <= 1:
-                        match = True
+                        word_matched = True
                         break
-                    else:
-                        match = False
-                        pass
-                if match:
+                if not word_matched:
+                    match = False
                     break
-
             if match:
                 results.append(text)
                 break
@@ -433,7 +431,7 @@ def search_engine(query, data) -> None | list[str]:
     if results:
         return results
     else:
-        print("No results found for '{}'".format(query))
+        return None
 
 
 def is_available(id) -> bool:
