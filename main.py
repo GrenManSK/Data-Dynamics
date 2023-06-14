@@ -56,6 +56,7 @@ def main(stdscr) -> None:
     LINES = curses.LINES
     init(stdscr)
     builder(
+        component(["Welcome to Data-Dynamics"], 0, 0, border=True),
         cinput(
             LINES - 1,
             0,
@@ -72,7 +73,7 @@ def main(stdscr) -> None:
                 "search_char": [0, 11, [search_char, ["args"]], ["anime_name"]],
             },
             help="Type function",
-        )
+        ),
     ).build()
 
 
@@ -99,10 +100,18 @@ def _search_char(*args):
     global _return
     parser = argparse.ArgumentParser()
     parser.add_argument("anime")
+    
+    if int("".join(args)) < 0:
+        builder(component(['Failed | Returned'], 0, 0, border=True)).build()
+        return
 
     args = parser.parse_args(["".join(args)])
     anime = int(args.anime)
-    anime = str(_return[anime])
+    try:
+        anime = str(_return[anime])
+    except IndexError:
+        builder(component(['Failed | IndexError'], 0, 0, border=True)).build()
+        return
 
     id = get_id(anime)
 
@@ -159,10 +168,18 @@ def _search_staff(*args):
     global _return
     parser = argparse.ArgumentParser()
     parser.add_argument("anime")
+    
+    if int("".join(args)) < 0:
+        builder(component(['Failed | Returned'], 0, 0, border=True)).build()
+        return
 
     args = parser.parse_args(["".join(args)])
     anime = int(args.anime)
-    anime = str(_return[anime])
+    try:
+        anime = str(_return[anime])
+    except IndexError:
+        builder(component(['Failed | IndexError'], 0, 0, border=True)).build()
+        return
 
     id = get_id(anime)
 
@@ -371,9 +388,17 @@ def add_anime_to_dat(*args) -> None:
     parser = argparse.ArgumentParser()
     parser.add_argument("anime")
 
-    args = parser.parse_args(args)
+    if int("".join(args)) < 0:
+        builder(component(['Failed | Returned'], 0, 0, border=True)).build()
+        return
+    
+    args = parser.parse_args(["".join(args)])
     anime = int(args.anime)
-    anime = str(_return[anime])
+    try:
+        anime = str(_return[anime])
+    except IndexError:
+        builder(component(['Failed | IndexError'], 0, 0, border=True)).build()
+        return
 
     id = get_id(anime)
 
