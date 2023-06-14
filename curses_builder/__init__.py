@@ -203,19 +203,37 @@ class builder:
                             is_func = True
                             pocet = len(_func) + 1
                     if is_func:
-                        arg_num = len(vstup.split(" ")) - 2
+                        _vstup = list(filter(("").__ne__, vstup.split(" ")))
+                        increment = 1 if vstup.split(" ")[-1] == "" else 0
+                        count = 0
+                        _increment = 0
+                        for times, i in enumerate(vstup.split(" ")):
+                            if i == "":
+                                if times == 0 or times == len(vstup) - 1:
+                                    continue
+                                count += 1
+                            if i != "":
+                                _increment += count
+                                count = 0
+                        if increment == 1:
+                            _vstup.append("")
+                        arg_num = len(_vstup) - 2
                         if arg_num == -1:
                             arg_num = 0
+                        nam = vstup.split(" ")
+                        if len(nam) == 1:
+                            posun = len(_func) + 2 + _increment
+                        else:
+                            posun = (
+                                sum([len(i) for i in vstup.split(" ")[:-1]])
+                                + 2
+                                + _increment
+                            )
                         if arg_num != arg_num_hist:
                             if border:
                                 string(y - 1, x, (COLS - x) * "_")
                             else:
                                 string(y - 1, x, (COLS - x) * " ")
-                            nam = vstup.split(" ")
-                            if len(nam) == 1:
-                                posun = len(_func) + 2
-                            else:
-                                posun = sum([len(i) for i in vstup.split(" ")[:-1]]) + 2
                             arg_num_hist = arg_num
                         try:
                             string(y - 1, x + posun, function[_func][3][arg_num])
@@ -376,9 +394,6 @@ class builder:
                                 self.add_history(window)
                         func_args = None
                         vstup = ""
-                        string(y, x, (COLS - x) * " ")
-                        string(y - 1, x, (COLS - x) * " ")
-                        string(y, x, vstup)
                     if limit == 0:
                         break
                     if end:
