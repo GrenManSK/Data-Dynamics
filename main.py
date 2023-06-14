@@ -71,6 +71,7 @@ def main(stdscr) -> None:
                 "search_staff": [0, 12, [search_staff, ["args"]], ["anime_name"]],
                 "search_char": [0, 11, [search_char, ["args"]], ["anime_name"]],
             },
+            help="Type function",
         )
     ).build()
 
