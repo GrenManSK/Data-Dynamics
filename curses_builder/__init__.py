@@ -188,11 +188,14 @@ class builder:
                 arg_num = 0
                 arg_num_hist = -1
                 while True:
+                    string(y, x, (COLS - x) * " ")
+                    string(y - 1, x, (COLS - x) * " ")
+                    string(y, x, vstup)
                     func_reset = False
                     konecna = False
                     if not vstup[1:pocet] in function.keys() and is_func:
-                        string(y - 1, x, COLS * " ")
-                        string(y, x + len(_func) + 1, "")
+                        string(y - 1, x, (COLS - x) * " ")
+                        string(y, x + len(_func), "")
                         is_func = False
                     if vstup[1:] in function.keys():
                         _func = vstup[1:]
@@ -205,20 +208,37 @@ class builder:
                             arg_num = 0
                         if arg_num != arg_num_hist:
                             if border:
-                                string(y - 1, x, COLS * "_")
+                                string(y - 1, x, (COLS - x) * "_")
                             else:
-                                string(y - 1, x, COLS * " ")
+                                string(y - 1, x, (COLS - x) * " ")
                             nam = vstup.split(" ")
                             if len(nam) == 1:
                                 posun = len(_func) + 2
                             else:
                                 posun = sum([len(i) for i in vstup.split(" ")[:-1]]) + 2
-                            try:
-                                string(y - 1, x + posun, function[_func][3][arg_num])
-                                string(y, x + len(vstup), "")
-                            except IndexError:
-                                pass
                             arg_num_hist = arg_num
+                        try:
+                            string(y - 1, x + posun, function[_func][3][arg_num])
+                            more_arg = ""
+                            for i in range(arg_num + 1, len(function[_func][3])):
+                                more_arg += " " + function[_func][3][i] + " |"
+                            more_arg = more_arg[:-1]
+                            more_posun = (
+                                len(vstup) - posun - len(function[_func][3][arg_num])
+                            )
+                            if more_posun < 0:
+                                more_posun = 0
+                            string(
+                                y - 1,
+                                x
+                                + posun
+                                + len(function[_func][3][arg_num])
+                                + more_posun,
+                                more_arg,
+                            )
+                            string(y, x + len(vstup), "")
+                        except IndexError:
+                            pass
                     if ikey == "" and not inp:
                         inp = True
                         vstup += ikey
@@ -356,6 +376,9 @@ class builder:
                                 self.add_history(window)
                         func_args = None
                         vstup = ""
+                        string(y, x, (COLS - x) * " ")
+                        string(y - 1, x, (COLS - x) * " ")
+                        string(y, x, vstup)
                     if limit == 0:
                         break
                     if end:
