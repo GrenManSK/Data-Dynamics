@@ -165,22 +165,25 @@ def search_char(*args):
     for times, i in enumerate(_return):
         res.append(f"{times} - {i}")
 
-    builder(
-        component(
-            [*res],
-            0,
-            0,
-            border=True,
-        ),
-        cinput(
-            LINES - 1,
-            0,
-            "",
-            {"": [0, 0, [_search_char, ["args"]]]},
-            limit=1,
-            nof=True,
-        ),
-    ).build()
+    if len(res) == 1:
+        _search_char("0")
+    else:
+        builder(
+            component(
+                [*res],
+                0,
+                0,
+                border=True,
+            ),
+            cinput(
+                LINES - 1,
+                0,
+                "",
+                {"": [0, 0, [_search_char, ["args"]]]},
+                limit=1,
+                nof=True,
+            ),
+        ).build()
 
 
 def _search_staff(*args):
@@ -232,23 +235,25 @@ def search_staff(*args):
     res = []
     for times, i in enumerate(_return):
         res.append(f"{times} - {i}")
-
-    builder(
-        component(
-            [*res],
-            0,
-            0,
-            border=True,
-        ),
-        cinput(
-            LINES - 1,
-            0,
-            "",
-            {"": [0, 0, [_search_staff, ["args"]]]},
-            limit=1,
-            nof=True,
-        ),
-    ).build()
+    if len(res) == 1:
+        _search_staff("0")
+    else:
+        builder(
+            component(
+                [*res],
+                0,
+                0,
+                border=True,
+            ),
+            cinput(
+                LINES - 1,
+                0,
+                "",
+                {"": [0, 0, [_search_staff, ["args"]]]},
+                limit=1,
+                nof=True,
+            ),
+        ).build()
 
 
 def show_anime() -> None:
@@ -381,23 +386,25 @@ def add_anime(*args) -> None:
     res = []
     for times, i in enumerate(_return):
         res.append(f"{times} - {i}")
-
-    builder(
-        component(
-            [*res],
-            0,
-            0,
-            border=True,
-        ),
-        cinput(
-            LINES - 1,
-            0,
-            "",
-            {"": [0, 0, [add_anime_to_dat, ["args"]]]},
-            limit=1,
-            nof=True,
-        ),
-    ).build()
+    if len(res) == 1:
+        add_anime_to_dat("0")
+    else:
+        builder(
+            component(
+                [*res],
+                0,
+                0,
+                border=True,
+            ),
+            cinput(
+                LINES - 1,
+                0,
+                "",
+                {"": [0, 0, [add_anime_to_dat, ["args"]]]},
+                limit=1,
+                nof=True,
+            ),
+        ).build()
 
 
 def add_anime_to_dat(*args) -> None:
@@ -474,6 +481,8 @@ def search_engine(query, data) -> None | list[str]:
                 break
 
     if results:
+        if query in results:
+            return [query]
         return results
     else:
         return None
