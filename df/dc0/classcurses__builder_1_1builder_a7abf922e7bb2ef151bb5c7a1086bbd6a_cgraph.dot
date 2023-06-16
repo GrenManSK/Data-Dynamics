@@ -1,0 +1,26 @@
+digraph "curses_builder.builder.build"
+{
+ // LATEX_PDF_SIZE
+  bgcolor="transparent";
+  edge [fontname=Helvetica,fontsize=10,labelfontname=Helvetica,labelfontsize=10];
+  node [fontname=Helvetica,fontsize=10,shape=box,height=0.2,width=0.4];
+  rankdir="LR";
+  Node1 [label="curses_builder.builder.build",height=0.2,width=0.4,color="gray40", fillcolor="grey60", style="filled", fontcolor="black",tooltip=" "];
+  Node1 -> Node2 [color="steelblue1",style="solid"];
+  Node2 [label="curses_builder.builder.add\l_history",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$df/dc0/classcurses__builder_1_1builder.html#a880c4cef30ad4afc828da33d5dbedb61",tooltip=" "];
+  Node1 -> Node3 [color="steelblue1",style="solid"];
+  Node3 [label="curses_builder.get_id",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$d0/d70/namespacecurses__builder.html#aff43af63a0bd48b2618742929bf6dc12",tooltip=" "];
+  Node1 -> Node4 [color="steelblue1",style="solid"];
+  Node4 [label="curses_builder.builder.reset",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$df/dc0/classcurses__builder_1_1builder.html#aeb5d535168cddf2f5fd605f9829d9e0c",tooltip=" "];
+  Node4 -> Node2 [color="steelblue1",style="solid"];
+  Node4 -> Node5 [color="steelblue1",style="solid"];
+  Node5 [label="curses_builder.string",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$d0/d70/namespacecurses__builder.html#aa6d6a336afddb8314b70939716b88ed1",tooltip=" "];
+  Node1 -> Node6 [color="steelblue1",style="solid"];
+  Node6 [label="curses_builder.builder.restore",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$df/dc0/classcurses__builder_1_1builder.html#aab9bc3c66fbac9d7e7bdc61e60230307",tooltip=" "];
+  Node6 -> Node5 [color="steelblue1",style="solid"];
+  Node1 -> Node7 [color="steelblue1",style="solid"];
+  Node7 [label="curses_builder.search\l_engine",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$d0/d70/namespacecurses__builder.html#a1c468db6c9d17f11b454be5bad12e111",tooltip=" "];
+  Node1 -> Node8 [color="steelblue1",style="solid"];
+  Node8 [label="curses_builder.search\l_engine_double",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$d0/d70/namespacecurses__builder.html#a261efd3bf03b9a92f3eb42cb6aae6ad1",tooltip=" "];
+  Node1 -> Node5 [color="steelblue1",style="solid"];
+}

@@ -1,0 +1,21 @@
+digraph "main.get_id"
+{
+ // LATEX_PDF_SIZE
+  bgcolor="transparent";
+  edge [fontname=Helvetica,fontsize=10,labelfontname=Helvetica,labelfontsize=10];
+  node [fontname=Helvetica,fontsize=10,shape=box,height=0.2,width=0.4];
+  rankdir="RL";
+  Node1 [label="main.get_id",height=0.2,width=0.4,color="gray40", fillcolor="grey60", style="filled", fontcolor="black",tooltip=" "];
+  Node1 -> Node2 [dir="back",color="steelblue1",style="solid"];
+  Node2 [label="main._search_char",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$d2/dc1/namespacemain.html#a2c343230bfba6899606cd5f03a716138",tooltip=" "];
+  Node2 -> Node3 [dir="back",color="steelblue1",style="solid"];
+  Node3 [label="main.search_char",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$d2/dc1/namespacemain.html#ad79fb4dd37cc67fddcea43955ea72555",tooltip=" "];
+  Node1 -> Node4 [dir="back",color="steelblue1",style="solid"];
+  Node4 [label="main._search_staff",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$d2/dc1/namespacemain.html#ad2f9bf245f7f5c84d4e3226daf19164d",tooltip=" "];
+  Node4 -> Node5 [dir="back",color="steelblue1",style="solid"];
+  Node5 [label="main.search_staff",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$d2/dc1/namespacemain.html#ad6569b4c2d5eb80f17ed21b0bb685db0",tooltip=" "];
+  Node1 -> Node6 [dir="back",color="steelblue1",style="solid"];
+  Node6 [label="main.add_anime_to_dat",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$d2/dc1/namespacemain.html#aebff84e3f39ceb37dd8e508ffdffe172",tooltip=" "];
+  Node6 -> Node7 [dir="back",color="steelblue1",style="solid"];
+  Node7 [label="main.add_anime",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$d2/dc1/namespacemain.html#afc0df0754192c3af1a4b56c7d0c0f46c",tooltip=" "];
+}

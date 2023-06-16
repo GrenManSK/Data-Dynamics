@@ -1,4 +1,0 @@
-windows_curses
-argparse
-Levenshtein
-python-dotenv

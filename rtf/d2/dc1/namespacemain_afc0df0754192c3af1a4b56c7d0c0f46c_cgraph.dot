@@ -1,0 +1,19 @@
+digraph "main.add_anime"
+{
+ // LATEX_PDF_SIZE
+  bgcolor="transparent";
+  edge [fontname=Helvetica,fontsize=10,labelfontname=Helvetica,labelfontsize=10];
+  node [fontname=Helvetica,fontsize=10,shape=box,height=0.2,width=0.4];
+  rankdir="LR";
+  Node1 [label="main.add_anime",height=0.2,width=0.4,color="gray40", fillcolor="grey60", style="filled", fontcolor="black",tooltip=" "];
+  Node1 -> Node2 [color="steelblue1",style="solid"];
+  Node2 [label="main.add_anime_to_dat",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$d2/dc1/namespacemain.html#aebff84e3f39ceb37dd8e508ffdffe172",tooltip=" "];
+  Node2 -> Node3 [color="steelblue1",style="solid"];
+  Node3 [label="main.get_id",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$d2/dc1/namespacemain.html#a1e678147cc6f539ad7102e8881661fb5",tooltip=" "];
+  Node2 -> Node4 [color="steelblue1",style="solid"];
+  Node4 [label="main.is_available",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$d2/dc1/namespacemain.html#a1b371fe96a31980552b7e1108d5ca431",tooltip=" "];
+  Node1 -> Node5 [color="steelblue1",style="solid"];
+  Node5 [label="main.get_animes",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$d2/dc1/namespacemain.html#a2ebcb898e3dfd47a5e02cb7239406593",tooltip=" "];
+  Node1 -> Node6 [color="steelblue1",style="solid"];
+  Node6 [label="main.search_engine",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$d2/dc1/namespacemain.html#add3a50f5c34cd4fffb904a6a497b5e4f",tooltip=" "];
+}
