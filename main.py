@@ -133,14 +133,75 @@ def main(stdscr) -> None:
                         get_studios(),
                     ],
                 ],
+                "del": [
+                    0,
+                    3,
+                    [delete, ["args"]],
+                    [
+                        "table",
+                        {
+                            "anime": "id",
+                            "name": "id",
+                            "characters": "id",
+                            "staff": "anime_id",
+                            "watchlist": "id",
+                        },
+                        {"staff": "name", "watchlist": "anime_id"},
+                    ],
+                    [
+                        ["watchlist", "anime", "characters", "staff", "name"],
+                    ],
+                ],
             },
             help="Type function",
         ),
     ).build()
 
 
+def delete(*args):
+    if PRIVILEGE != "A":
+        builder(component(["Failed | Not allowed"], 0, 0, border=True)).build()
+        return
+    if args[0] == "watchlist":
+        parser = argparse.ArgumentParser()
+        parser.add_argument("id")
+        parser.add_argument("anime_id")
+        args = parser.parse_args(args[1:])
+
+        server.execute(
+            f"DELETE FROM watchlist WHERE `watchlist`.`id` = {args.id} and `watchlist`.`anime_id` = {args.anime_id}"
+        )
+    if args[0] == "staff":
+        parser = argparse.ArgumentParser()
+        parser.add_argument("anime_id")
+        parser.add_argument("name")
+        args = parser.parse_args(args[1:])
+
+        server.execute(
+            f"DELETE FROM staff WHERE `staff`.`anime_id` = {args.anime_id} and `staff`.`name` = {args.name}"
+        )
+    if args[0] == "anime":
+        parser = argparse.ArgumentParser()
+        parser.add_argument("id")
+        args = parser.parse_args(args[1:])
+
+        server.execute(f"DELETE FROM anime WHERE `anime`.`id` = {args.id}")
+    if args[0] == "name":
+        parser = argparse.ArgumentParser()
+        parser.add_argument("id")
+        args = parser.parse_args(args[1:])
+
+        server.execute(f"DELETE FROM name WHERE `name`.`id` = {args.id}")
+    if args[0] == "characters":
+        parser = argparse.ArgumentParser()
+        parser.add_argument("id")
+        args = parser.parse_args(args[1:])
+
+        server.execute(f"DELETE FROM characters WHERE `characters`.`id` = {args.id}")
+
+
 def add_anime(*args):
-    if PRIVILEGE != 'A':
+    if PRIVILEGE != "A":
         builder(component(["Failed | Not allowed"], 0, 0, border=True)).build()
         return
     parser = argparse.ArgumentParser()
