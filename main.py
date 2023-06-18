@@ -69,10 +69,10 @@ def main(stdscr) -> None:
                 "register": [0, 8, [register, ["args"]], ["username", "password"]],
                 "show_anime": [0, 10, show_anime, ["no arguments"]],
                 "logout": [0, 6, logout, ["no arguments"]],
-                "add_anime": [
+                "add_watch": [
                     0,
                     9,
-                    [add_anime, ["args"]],
+                    [add_watch, ["args"]],
                     ["anime_name", "status"],
                     [get_animes(), ["completed", "dropped", "watching", "planning"]],
                 ],
@@ -90,10 +90,105 @@ def main(stdscr) -> None:
                     ["anime_name"],
                     [get_animes()],
                 ],
+                "add_anime": [
+                    0,
+                    9,
+                    [add_anime, ["args"]],
+                    [
+                        "id",
+                        "title",
+                        "url",
+                        "ENG_title",
+                        "JA_title",
+                        "score",
+                        "rating",
+                        "genres",
+                        "rank",
+                        "aired",
+                        "duration",
+                        "episode",
+                        "favorites",
+                        "licensors",
+                        "source",
+                        "image_url",
+                        "studios",
+                    ],
+                    [
+                        [],
+                        get_animes(),
+                        [],
+                        get_animes(),
+                        get_animes(),
+                        [],
+                        [],
+                        [],
+                        [],
+                        [],
+                        [],
+                        [],
+                        [],
+                        [],
+                        [],
+                        [],
+                        get_studios(),
+                    ],
+                ],
             },
             help="Type function",
         ),
     ).build()
+
+
+def add_anime(*args):
+    if PRIVILEGE != 'A':
+        builder(component(["Failed | Not allowed"], 0, 0, border=True)).build()
+        return
+    parser = argparse.ArgumentParser()
+    parser.add_argument("id")
+    parser.add_argument("title")
+    parser.add_argument("url")
+    parser.add_argument("ENG_title")
+    parser.add_argument("JA_title")
+    parser.add_argument("score")
+    parser.add_argument("rating")
+    parser.add_argument("genres")
+    parser.add_argument("rank")
+    parser.add_argument("aired")
+    parser.add_argument("duration")
+    parser.add_argument("episodes")
+    parser.add_argument("favorites")
+    parser.add_argument("licensors")
+    parser.add_argument("source")
+    parser.add_argument("image_url")
+    parser.add_argument("studios")
+
+    if int("".join(args)) < 0:
+        builder(component(["Failed | Returned"], 0, 0, border=True)).build()
+        return
+
+    args = parser.parse_args(args)
+
+    id = args.id
+    title = args.title
+    url = args.url
+    ENG_title = args.ENG_title
+    JA_title = args.JA_title
+    score = args.score
+    rating = args.rating
+    genres = args.genres
+    rank = args.rank
+    aired = args.aired
+    duration = args.duration
+    episodes = args.episodes
+    favorites = args.favorites
+    licensors = args.licensors
+    source = args.source
+    image_url = args.image_url
+    studios = args.studios
+
+    server.execute(
+        f"INSERT INTO `anime` (`id`, `title`, `url`, `ENG_title`, `JA_title`, `score`, `rating`, `genres`, `rank`, `aired`, `duration`, `episodes`, `favorites`, `licensors`, `source`, `image_url`, `studios`) VALUES ('{id}', '{title}', '{url}', '{ENG_title}', '{JA_title}', '{score}', '{rating}', '{genres}', '{rank}', '{aired}', '{duration}', '{episodes}', '{favorites}', '{licensors}', '{source}', '{image_url}', '{studios}')"
+    )
 
 
 def get_animes() -> list[list[str, str]]:
@@ -101,6 +196,10 @@ def get_animes() -> list[list[str, str]]:
         [i[0], i[1]]
         for i in server.execute("SELECT title, ENG_title FROM anime", info=False)
     ]
+
+
+def get_studios() -> list[list[str, str]]:
+    return [i[0] for i in server.execute("SELECT studios FROM anime", info=False)]
 
 
 def get_id(anime) -> str:
@@ -353,7 +452,7 @@ def register(*args) -> None:
     builder(component([f"Sucess | {username} created"], 0, 0, border=True)).build()
 
 
-def add_anime(*args) -> None:
+def add_watch(*args) -> None:
     global LINES
     global _return
     global anime_status
@@ -387,7 +486,7 @@ def add_anime(*args) -> None:
     for times, i in enumerate(_return):
         res.append(f"{times} - {i}")
     if len(res) == 1:
-        add_anime_to_dat("0")
+        add_watch_to_dat("0")
     else:
         builder(
             component(
@@ -400,14 +499,14 @@ def add_anime(*args) -> None:
                 LINES - 1,
                 0,
                 "",
-                {"": [0, 0, [add_anime_to_dat, ["args"]]]},
+                {"": [0, 0, [add_watch_to_dat, ["args"]]]},
                 limit=1,
                 nof=True,
             ),
         ).build()
 
 
-def add_anime_to_dat(*args) -> None:
+def add_watch_to_dat(*args) -> None:
     global _return
     global ACCOUNT_ID
     global anime_status
