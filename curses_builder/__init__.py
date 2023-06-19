@@ -288,7 +288,10 @@ class builder:
                             )
                         try:
                             if key == "\t":
-                                _help = function[_func][4][arg_num]
+                                if isinstance(function[_func][4][arg_num], list):
+                                    _help = function[_func][4][arg_num]
+                                elif isinstance(function[_func][4][arg_num], dict):
+                                    _help = function[_func][4][arg_num][main_arg]
                                 string(y - 1, COLS - 14, "Running Engine")
                                 if isinstance(_help[0], list) and not _in_tab:
                                     _return = search_engine_double(
