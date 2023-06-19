@@ -170,7 +170,8 @@ def delete(*args):
         args = parser.parse_args(args[1:])
 
         server.execute(
-            f"DELETE FROM watchlist WHERE `watchlist`.`id` = {args.id} and `watchlist`.`anime_id` = {args.anime_id}"
+            f"DELETE FROM watchlist WHERE `watchlist`.`id` = {args.id} and `watchlist`.`anime_id` = {args.anime_id}",
+            info=False,
         )
         success = True
     elif args[0] == "staff":
@@ -180,7 +181,8 @@ def delete(*args):
         args = parser.parse_args(args[1:])
 
         server.execute(
-            f"DELETE FROM staff WHERE `staff`.`anime_id` = {args.anime_id} and `staff`.`name` = {args.name}"
+            f"DELETE FROM staff WHERE `staff`.`anime_id` = {args.anime_id} and `staff`.`name` = {args.name}",
+            info=False,
         )
         success = True
     elif args[0] == "anime":
@@ -188,21 +190,23 @@ def delete(*args):
         parser.add_argument("id")
         args = parser.parse_args(args[1:])
 
-        server.execute(f"DELETE FROM anime WHERE `anime`.`id` = {args.id}")
+        server.execute(f"DELETE FROM anime WHERE `anime`.`id` = {args.id}", info=False)
         success = True
     elif args[0] == "name":
         parser = argparse.ArgumentParser()
         parser.add_argument("id")
         args = parser.parse_args(args[1:])
 
-        server.execute(f"DELETE FROM name WHERE `name`.`id` = {args.id}")
+        server.execute(f"DELETE FROM name WHERE `name`.`id` = {args.id}", info=False)
         success = True
     elif args[0] == "characters":
         parser = argparse.ArgumentParser()
         parser.add_argument("id")
         args = parser.parse_args(args[1:])
 
-        server.execute(f"DELETE FROM characters WHERE `characters`.`id` = {args.id}")
+        server.execute(
+            f"DELETE FROM characters WHERE `characters`.`id` = {args.id}", info=False
+        )
         success = True
     if success:
         builder(component(["Success"], 0, 0, border=True)).build()
