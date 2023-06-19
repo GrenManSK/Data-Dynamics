@@ -223,7 +223,10 @@ class builder:
                         _func = vstup[1:].split(" ")[0].split("\t")[0]
                         if function[_func] == "help":
                             number_of_tabs = vstup.count("\t")
-                            if number_of_tabs_hist == 0 and key == "KEY_BTAB":
+                            if number_of_tabs_hist == 0 and key in [
+                                "KEY_BTAB",
+                                "KEY_B1",
+                            ]:
                                 number_of_tabs = len(function.keys()) - 1
                                 vstup += number_of_tabs * "\t"
                             while number_of_tabs > len(function.keys()) - 1:
@@ -429,6 +432,26 @@ class builder:
                                         vstup = vstup[:-1]
                                         while vstup[-1] == " ":
                                             vstup = vstup[:-1]
+                            elif key == "KEY_A2":
+                                pass
+                            elif key == "KEY_B3":
+                                if _func == "help":
+                                    vstup += "\t"
+                                    key = "\t"
+                            elif key == "KEY_B1":
+                                if _func == "help":
+                                    if vstup[-1] in ["\t", " "]:
+                                        vstup = vstup[:-1]
+                                        while vstup[-1] == " ":
+                                            vstup = vstup[:-1]
+                                        key = "KEY_BTAB"
+                            elif key == "KEY_C2":
+                                pass
+                            elif key.startswith("KEY_F("):
+                                if key.endswith(")"):
+                                    f_number = key[-2]
+                                    pass
+                                pass
                             else:
                                 vstup += key
                         else:
