@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['login_0',['login',['../d2/dc1/namespacemain.html#a6e11e4a7a7f5c0eaf818c966c638d9b4',1,'main']]],
-  ['logout_1',['logout',['../d2/dc1/namespacemain.html#ad6e218e7f162f82170dc81b4540f9dad',1,'main']]]
+  ['init_0',['init',['../d0/d70/namespacecurses__builder.html#a08104964ad09bfd698830d71381aa26f',1,'curses_builder']]],
+  ['is_5favailable_1',['is_available',['../d2/dc1/namespacemain.html#a1b371fe96a31980552b7e1108d5ca431',1,'main']]]
 ];

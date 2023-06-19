@@ -17,11 +17,11 @@
         </Subnodes>
        </Node>
        <Node>
-        <Name>Packages</Name>
+        <Name>Namespaces</Name>
         <Path>namespaces.html</Path>
       <Subnodes>
          <Node>
-          <Name>Package List</Name>
+          <Name>Namespace List</Name>
           <Path>namespaces.html</Path>
         <Subnodes>
            <Node>
@@ -290,12 +290,22 @@
              <Node>
               <Name>add_anime</Name>
               <Path>d2/dc1/namespacemain.html</Path>
-              <Anchor>afc0df0754192c3af1a4b56c7d0c0f46c</Anchor>
+              <Anchor>a5d87b187701eea0d42c7af5222c11b34</Anchor>
              </Node>
              <Node>
-              <Name>add_anime_to_dat</Name>
+              <Name>add_watch</Name>
               <Path>d2/dc1/namespacemain.html</Path>
-              <Anchor>aebff84e3f39ceb37dd8e508ffdffe172</Anchor>
+              <Anchor>abc87f81ad3d73f53f1b10e26569993d6</Anchor>
+             </Node>
+             <Node>
+              <Name>add_watch_to_dat</Name>
+              <Path>d2/dc1/namespacemain.html</Path>
+              <Anchor>a5480c9afd1e0b14ab9c23f69903f7015</Anchor>
+             </Node>
+             <Node>
+              <Name>delete</Name>
+              <Path>d2/dc1/namespacemain.html</Path>
+              <Anchor>a73c31d1a77cd0b53cba56667e9bf6800</Anchor>
              </Node>
              <Node>
               <Name>get_animes</Name>
@@ -306,6 +316,11 @@
               <Name>get_id</Name>
               <Path>d2/dc1/namespacemain.html</Path>
               <Anchor>a1e678147cc6f539ad7102e8881661fb5</Anchor>
+             </Node>
+             <Node>
+              <Name>get_studios</Name>
+              <Path>d2/dc1/namespacemain.html</Path>
+              <Anchor>a63f327b3f1de4012f744106fa771d86c</Anchor>
              </Node>
              <Node>
               <Name>is_available</Name>
@@ -432,7 +447,7 @@
           </Subnodes>
          </Node>
          <Node>
-          <Name>Package Members</Name>
+          <Name>Namespace Members</Name>
           <Path>namespacemembers.html</Path>
         <Subnodes>
            <Node>
@@ -953,12 +968,22 @@
              <Node>
               <Name>add_anime</Name>
               <Path>dc/dba/main_8py.html</Path>
-              <Anchor>afc0df0754192c3af1a4b56c7d0c0f46c</Anchor>
+              <Anchor>a5d87b187701eea0d42c7af5222c11b34</Anchor>
              </Node>
              <Node>
-              <Name>add_anime_to_dat</Name>
+              <Name>add_watch</Name>
               <Path>dc/dba/main_8py.html</Path>
-              <Anchor>aebff84e3f39ceb37dd8e508ffdffe172</Anchor>
+              <Anchor>abc87f81ad3d73f53f1b10e26569993d6</Anchor>
+             </Node>
+             <Node>
+              <Name>add_watch_to_dat</Name>
+              <Path>dc/dba/main_8py.html</Path>
+              <Anchor>a5480c9afd1e0b14ab9c23f69903f7015</Anchor>
+             </Node>
+             <Node>
+              <Name>delete</Name>
+              <Path>dc/dba/main_8py.html</Path>
+              <Anchor>a73c31d1a77cd0b53cba56667e9bf6800</Anchor>
              </Node>
              <Node>
               <Name>get_animes</Name>
@@ -969,6 +994,11 @@
               <Name>get_id</Name>
               <Path>dc/dba/main_8py.html</Path>
               <Anchor>a1e678147cc6f539ad7102e8881661fb5</Anchor>
+             </Node>
+             <Node>
+              <Name>get_studios</Name>
+              <Path>dc/dba/main_8py.html</Path>
+              <Anchor>a63f327b3f1de4012f744106fa771d86c</Anchor>
              </Node>
              <Node>
               <Name>is_available</Name>

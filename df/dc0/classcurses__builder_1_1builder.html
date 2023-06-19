@@ -102,6 +102,11 @@ $(document).ready(function(){initNavTree('df/dc0/classcurses__builder_1_1builder
 </div>
 <div id="dynsection-0-content" class="dyncontent" style="display:none;">
 <div class="center"><img src="../../d9/dd5/classcurses__builder_1_1builder__inherit__graph.png" border="0" usemap="#acurses__builder_8builder_inherit__map" alt="Inheritance graph"/></div>
+<map name="acurses__builder_8builder_inherit__map" id="acurses__builder_8builder_inherit__map">
+<area shape="rect" title=" " alt="" coords="95,5,242,32"/>
+<area shape="rect" href="../../df/dd6/classcurses__builder_1_1cinput.html" title=" " alt="" coords="5,80,150,107"/>
+<area shape="rect" href="../../d5/d5d/classcurses__builder_1_1component.html" title=" " alt="" coords="174,80,347,107"/>
+</map>
 <center><span class="legend">[<a target="top" href="../../graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
@@ -199,13 +204,13 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d3/d9a/____init_____8py_source.html#l00519">519</a> of file <a class="el" href="../../d3/d9a/____init_____8py_source.html">__init__.py</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  519</span>    <span class="keyword">def </span>add(self, *args):</div>
-<div class="line"><span class="lineno">  520</span>        <span class="keywordflow">for</span> times, arg <span class="keywordflow">in</span> enumerate(args):</div>
-<div class="line"><span class="lineno">  521</span>            times += self.lenght</div>
-<div class="line"><span class="lineno">  522</span>            setattr(self, f<span class="stringliteral">&quot;component_{times}&quot;</span>, arg())</div>
-<div class="line"><span class="lineno">  523</span> </div>
-<div class="line"><span class="lineno">  524</span> </div>
+<p class="definition">Definition at line <a class="el" href="../../d3/d9a/____init_____8py_source.html#l00607">607</a> of file <a class="el" href="../../d3/d9a/____init_____8py_source.html">__init__.py</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  607</span>    <span class="keyword">def </span>add(self, *args):</div>
+<div class="line"><span class="lineno">  608</span>        <span class="keywordflow">for</span> times, arg <span class="keywordflow">in</span> enumerate(args):</div>
+<div class="line"><span class="lineno">  609</span>            times += self.lenght</div>
+<div class="line"><span class="lineno">  610</span>            setattr(self, f<span class="stringliteral">&quot;component_{times}&quot;</span>, arg())</div>
+<div class="line"><span class="lineno">  611</span> </div>
+<div class="line"><span class="lineno">  612</span> </div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -255,6 +260,11 @@ Public Attributes</h2></td></tr>
 </div>
 <div id="dynsection-1-content" class="dyncontent" style="display:none;">
 <div class="center"><img src="../../df/dc0/classcurses__builder_1_1builder_a880c4cef30ad4afc828da33d5dbedb61_icgraph.png" border="0" usemap="#adf/dc0/classcurses__builder_1_1builder_a880c4cef30ad4afc828da33d5dbedb61_icgraph" alt=""/></div>
+<map name="adf/dc0/classcurses__builder_1_1builder_a880c4cef30ad4afc828da33d5dbedb61_icgraph" id="adf/dc0/classcurses__builder_1_1builder_a880c4cef30ad4afc828da33d5dbedb61_icgraph">
+<area shape="rect" title=" " alt="" coords="460,5,632,48"/>
+<area shape="rect" href="../../df/dc0/classcurses__builder_1_1builder.html#a7abf922e7bb2ef151bb5c7a1086bbd6a" title=" " alt="" coords="5,13,184,40"/>
+<area shape="rect" href="../../df/dc0/classcurses__builder_1_1builder.html#aeb5d535168cddf2f5fd605f9829d9e0c" title=" " alt="" coords="232,39,412,65"/>
+</map>
 </div>
 
 </div>
@@ -357,329 +367,427 @@ Public Attributes</h2></td></tr>
 <div class="line"><span class="lineno">  199</span>                number_of_tabs_hist = 0</div>
 <div class="line"><span class="lineno">  200</span>                _in_tab = <span class="keyword">False</span></div>
 <div class="line"><span class="lineno">  201</span>                _in_tab_num = 0</div>
-<div class="line"><span class="lineno">  202</span>                <span class="keywordflow">while</span> <span class="keyword">True</span>:</div>
-<div class="line"><span class="lineno">  203</span>                    string(y, x, (COLS - x) * <span class="stringliteral">&quot; &quot;</span>)</div>
-<div class="line"><span class="lineno">  204</span>                    <span class="keywordflow">if</span> border:</div>
-<div class="line"><span class="lineno">  205</span>                        string(y - 1, x, (COLS - x) * <span class="stringliteral">&quot;_&quot;</span>)</div>
-<div class="line"><span class="lineno">  206</span>                    <span class="keywordflow">else</span>:</div>
-<div class="line"><span class="lineno">  207</span>                        string(y - 1, x, (COLS - x) * <span class="stringliteral">&quot; &quot;</span>)</div>
-<div class="line"><span class="lineno">  208</span>                    string(y, x, vstup)</div>
-<div class="line"><span class="lineno">  209</span>                    func_reset = <span class="keyword">False</span></div>
-<div class="line"><span class="lineno">  210</span>                    konecna = <span class="keyword">False</span></div>
-<div class="line"><span class="lineno">  211</span>                    <span class="keywordflow">if</span> help <span class="keywordflow">and</span> len(vstup) == 1:</div>
-<div class="line"><span class="lineno">  212</span>                        string(y - 1, x + 2, help)</div>
-<div class="line"><span class="lineno">  213</span>                        string(y, x, vstup)</div>
-<div class="line"><span class="lineno">  214</span>                    <span class="keywordflow">if</span> <span class="keywordflow">not</span> vstup[1:pocet] <span class="keywordflow">in</span> function.keys() <span class="keywordflow">and</span> is_func:</div>
-<div class="line"><span class="lineno">  215</span>                        string(y - 1, x, (COLS - x) * <span class="stringliteral">&quot; &quot;</span>)</div>
-<div class="line"><span class="lineno">  216</span>                        string(y, x + len(_func), <span class="stringliteral">&quot;&quot;</span>)</div>
-<div class="line"><span class="lineno">  217</span>                        is_func = <span class="keyword">False</span></div>
-<div class="line"><span class="lineno">  218</span>                        arg_num = 0</div>
-<div class="line"><span class="lineno">  219</span>                        arg_num_hist = -1</div>
-<div class="line"><span class="lineno">  220</span>                        arg_hist = {}</div>
-<div class="line"><span class="lineno">  221</span>                    <span class="keywordflow">if</span> vstup[1:].split(<span class="stringliteral">&quot; &quot;</span>)[0].split(<span class="stringliteral">&quot;\t&quot;</span>)[0] <span class="keywordflow">in</span> function.keys():</div>
-<div class="line"><span class="lineno">  222</span>                        _func = vstup[1:].split(<span class="stringliteral">&quot; &quot;</span>)[0].split(<span class="stringliteral">&quot;\t&quot;</span>)[0]</div>
-<div class="line"><span class="lineno">  223</span>                        <span class="keywordflow">if</span> function[_func] == <span class="stringliteral">&quot;help&quot;</span>:</div>
-<div class="line"><span class="lineno">  224</span>                            number_of_tabs = vstup.count(<span class="stringliteral">&quot;\t&quot;</span>)</div>
-<div class="line"><span class="lineno">  225</span>                            <span class="keywordflow">if</span> number_of_tabs_hist == 0 <span class="keywordflow">and</span> key == <span class="stringliteral">&quot;KEY_BTAB&quot;</span>:</div>
-<div class="line"><span class="lineno">  226</span>                                number_of_tabs = len(function.keys()) - 1</div>
-<div class="line"><span class="lineno">  227</span>                                vstup += number_of_tabs * <span class="stringliteral">&quot;\t&quot;</span></div>
-<div class="line"><span class="lineno">  228</span>                            <span class="keywordflow">while</span> number_of_tabs &gt; len(function.keys()) - 1:</div>
-<div class="line"><span class="lineno">  229</span>                                number_of_tabs = 0</div>
-<div class="line"><span class="lineno">  230</span>                                vstup = vstup.split(<span class="stringliteral">&quot; &quot;</span>)[0].split(<span class="stringliteral">&quot;\t&quot;</span>)[0]</div>
-<div class="line"><span class="lineno">  231</span>                            indent = 4</div>
-<div class="line"><span class="lineno">  232</span>                            vstup = vstup.split(<span class="stringliteral">&quot; &quot;</span>)[0]</div>
-<div class="line"><span class="lineno">  233</span>                            _help = <span class="stringliteral">&quot;&quot;</span></div>
-<div class="line"><span class="lineno">  234</span>                            <span class="keywordflow">for</span> times, i <span class="keywordflow">in</span> enumerate(function.keys()):</div>
-<div class="line"><span class="lineno">  235</span>                                _help += f<span class="stringliteral">&quot; {i} |&quot;</span></div>
-<div class="line"><span class="lineno">  236</span>                                <span class="keywordflow">if</span> times &lt; number_of_tabs:</div>
-<div class="line"><span class="lineno">  237</span>                                    indent += len(i) + 3</div>
-<div class="line"><span class="lineno">  238</span>                                <span class="keywordflow">elif</span> times == number_of_tabs:</div>
-<div class="line"><span class="lineno">  239</span>                                    indent += int(len(i) / 2)</div>
-<div class="line"><span class="lineno">  240</span>                                    __func_to_use = i</div>
-<div class="line"><span class="lineno">  241</span>                            _help = _help[:-1]</div>
-<div class="line"><span class="lineno">  242</span>                            indent -= 1</div>
-<div class="line"><span class="lineno">  243</span>                            string(</div>
-<div class="line"><span class="lineno">  244</span>                                y - 1,</div>
-<div class="line"><span class="lineno">  245</span>                                x + len(vstup.split(<span class="stringliteral">&quot; &quot;</span>)[0].split(<span class="stringliteral">&quot;\t&quot;</span>)[0]),</div>
-<div class="line"><span class="lineno">  246</span>                                _help,</div>
-<div class="line"><span class="lineno">  247</span>                            )</div>
-<div class="line"><span class="lineno">  248</span>                            string(</div>
-<div class="line"><span class="lineno">  249</span>                                y,</div>
-<div class="line"><span class="lineno">  250</span>                                x</div>
-<div class="line"><span class="lineno">  251</span>                                + indent</div>
-<div class="line"><span class="lineno">  252</span>                                + len(vstup.split(<span class="stringliteral">&quot; &quot;</span>)[0].split(<span class="stringliteral">&quot;\t&quot;</span>)[0])</div>
-<div class="line"><span class="lineno">  253</span>                                - 2,</div>
-<div class="line"><span class="lineno">  254</span>                                <span class="stringliteral">&quot;^&quot;</span>,</div>
-<div class="line"><span class="lineno">  255</span>                            )</div>
-<div class="line"><span class="lineno">  256</span>                            string(y, x, vstup.split(<span class="stringliteral">&quot;\t&quot;</span>)[0])</div>
-<div class="line"><span class="lineno">  257</span>                            number_of_tabs_hist = number_of_tabs</div>
-<div class="line"><span class="lineno">  258</span>                        <span class="keywordflow">elif</span> <span class="keywordflow">not</span> _func <span class="keywordflow">in</span> [<span class="stringliteral">&quot;q&quot;</span>, <span class="stringliteral">&quot;r&quot;</span>]:</div>
-<div class="line"><span class="lineno">  259</span>                            is_func = <span class="keyword">True</span></div>
-<div class="line"><span class="lineno">  260</span>                            pocet = len(_func) + 1</div>
-<div class="line"><span class="lineno">  261</span>                    <span class="keywordflow">if</span> is_func:</div>
-<div class="line"><span class="lineno">  262</span>                        _vstup = list(filter((<span class="stringliteral">&quot;&quot;</span>).__ne__, vstup.split(<span class="stringliteral">&quot; &quot;</span>)))</div>
-<div class="line"><span class="lineno">  263</span>                        increment = 1 <span class="keywordflow">if</span> vstup.split(<span class="stringliteral">&quot; &quot;</span>)[-1] == <span class="stringliteral">&quot;&quot;</span> <span class="keywordflow">else</span> 0</div>
-<div class="line"><span class="lineno">  264</span>                        count = 0</div>
-<div class="line"><span class="lineno">  265</span>                        _increment = 0</div>
-<div class="line"><span class="lineno">  266</span>                        <span class="keywordflow">for</span> times, i <span class="keywordflow">in</span> enumerate(vstup.split(<span class="stringliteral">&quot; &quot;</span>)):</div>
-<div class="line"><span class="lineno">  267</span>                            <span class="keywordflow">if</span> i == <span class="stringliteral">&quot;&quot;</span>:</div>
-<div class="line"><span class="lineno">  268</span>                                <span class="keywordflow">if</span> times == 0 <span class="keywordflow">or</span> times == len(vstup) - 1:</div>
-<div class="line"><span class="lineno">  269</span>                                    <span class="keywordflow">continue</span></div>
-<div class="line"><span class="lineno">  270</span>                                count += 1</div>
-<div class="line"><span class="lineno">  271</span>                            <span class="keywordflow">if</span> i != <span class="stringliteral">&quot;&quot;</span>:</div>
-<div class="line"><span class="lineno">  272</span>                                _increment += count</div>
-<div class="line"><span class="lineno">  273</span>                                count = 0</div>
-<div class="line"><span class="lineno">  274</span>                        <span class="keywordflow">if</span> increment == 1:</div>
-<div class="line"><span class="lineno">  275</span>                            _vstup.append(<span class="stringliteral">&quot;&quot;</span>)</div>
-<div class="line"><span class="lineno">  276</span>                        arg_num = len(_vstup) - 2</div>
-<div class="line"><span class="lineno">  277</span>                        <span class="keywordflow">if</span> arg_num == -1:</div>
-<div class="line"><span class="lineno">  278</span>                            arg_num = 0</div>
-<div class="line"><span class="lineno">  279</span>                        nam = vstup.split(<span class="stringliteral">&quot; &quot;</span>)</div>
-<div class="line"><span class="lineno">  280</span>                        <span class="keywordflow">if</span> len(nam) == 1:</div>
-<div class="line"><span class="lineno">  281</span>                            posun = len(_func) + 2 + _increment</div>
-<div class="line"><span class="lineno">  282</span>                        <span class="keywordflow">else</span>:</div>
-<div class="line"><span class="lineno">  283</span>                            posun = (</div>
-<div class="line"><span class="lineno">  284</span>                                sum([len(i) <span class="keywordflow">for</span> i <span class="keywordflow">in</span> vstup.split(<span class="stringliteral">&quot; &quot;</span>)[:-1]])</div>
-<div class="line"><span class="lineno">  285</span>                                + 2</div>
-<div class="line"><span class="lineno">  286</span>                                + _increment</div>
-<div class="line"><span class="lineno">  287</span>                            )</div>
-<div class="line"><span class="lineno">  288</span>                        <span class="keywordflow">try</span>:</div>
-<div class="line"><span class="lineno">  289</span>                            <span class="keywordflow">if</span> key == <span class="stringliteral">&quot;\t&quot;</span>:</div>
-<div class="line"><span class="lineno">  290</span>                                _help = function[_func][4][arg_num]</div>
-<div class="line"><span class="lineno">  291</span>                                string(y - 1, COLS - 14, <span class="stringliteral">&quot;Running Engine&quot;</span>)</div>
-<div class="line"><span class="lineno">  292</span>                                <span class="keywordflow">if</span> isinstance(_help[0], list) <span class="keywordflow">and</span> <span class="keywordflow">not</span> _in_tab:</div>
-<div class="line"><span class="lineno">  293</span>                                    _return = search_engine_double(</div>
-<div class="line"><span class="lineno">  294</span>                                        _vstup[arg_num + 1], _help</div>
-<div class="line"><span class="lineno">  295</span>                                    )</div>
-<div class="line"><span class="lineno">  296</span>                                <span class="keywordflow">if</span> isinstance(_help[0], str) <span class="keywordflow">and</span> <span class="keywordflow">not</span> _in_tab:</div>
-<div class="line"><span class="lineno">  297</span>                                    _return = search_engine(_vstup[arg_num + 1], _help)</div>
-<div class="line"><span class="lineno">  298</span>                                string(y - 1, COLS - 14, <span class="stringliteral">&quot;              &quot;</span>)</div>
-<div class="line"><span class="lineno">  299</span>                                <span class="keywordflow">if</span> _return <span class="keywordflow">is</span> <span class="keywordflow">not</span> <span class="keywordtype">None</span>:</div>
-<div class="line"><span class="lineno">  300</span>                                    <span class="keywordflow">if</span> _in_tab_num &gt; len(_return):</div>
-<div class="line"><span class="lineno">  301</span>                                        _in_tab_num = 0</div>
-<div class="line"><span class="lineno">  302</span>                                    vstup = (</div>
-<div class="line"><span class="lineno">  303</span>                                        vstup.rsplit(<span class="stringliteral">&quot; &quot;</span>, 1)[0]</div>
-<div class="line"><span class="lineno">  304</span>                                        + <span class="stringliteral">&quot; &quot;</span></div>
-<div class="line"><span class="lineno">  305</span>                                        + _return[_in_tab_num].replace(<span class="stringliteral">&quot; &quot;</span>, <span class="stringliteral">&quot;_&quot;</span>)</div>
-<div class="line"><span class="lineno">  306</span>                                    )</div>
-<div class="line"><span class="lineno">  307</span>                                    string(y, x, (COLS - x) * <span class="stringliteral">&quot; &quot;</span>)</div>
-<div class="line"><span class="lineno">  308</span>                                    string(y, x, vstup)</div>
-<div class="line"><span class="lineno">  309</span>                                    _in_tab = <span class="keyword">True</span></div>
-<div class="line"><span class="lineno">  310</span>                                    _in_tab_num += 1</div>
-<div class="line"><span class="lineno">  311</span>                            <span class="keywordflow">else</span>:</div>
-<div class="line"><span class="lineno">  312</span>                                _in_tab = <span class="keyword">False</span></div>
-<div class="line"><span class="lineno">  313</span>                                _in_tab_num = 0</div>
-<div class="line"><span class="lineno">  314</span>                        <span class="keywordflow">except</span> IndexError:</div>
-<div class="line"><span class="lineno">  315</span>                            _in_tab = <span class="keyword">False</span></div>
-<div class="line"><span class="lineno">  316</span>                            _in_tab_num = 0</div>
-<div class="line"><span class="lineno">  317</span>                        <span class="keywordflow">if</span> _in_tab <span class="keywordflow">and</span> key == <span class="stringliteral">&quot;\t&quot;</span>:</div>
-<div class="line"><span class="lineno">  318</span>                            vstup = vstup.replace(<span class="stringliteral">&quot;\t&quot;</span>, <span class="stringliteral">&quot; &quot;</span>)</div>
-<div class="line"><span class="lineno">  319</span>                        <span class="keywordflow">if</span> arg_num != arg_num_hist:</div>
-<div class="line"><span class="lineno">  320</span>                            <span class="keywordflow">if</span> border:</div>
-<div class="line"><span class="lineno">  321</span>                                string(y - 1, x, (COLS - x) * <span class="stringliteral">&quot;_&quot;</span>)</div>
+<div class="line"><span class="lineno">  202</span>                main_arg = <span class="keywordtype">None</span></div>
+<div class="line"><span class="lineno">  203</span>                <span class="keywordflow">while</span> <span class="keyword">True</span>:</div>
+<div class="line"><span class="lineno">  204</span>                    string(y, x, (COLS - x) * <span class="stringliteral">&quot; &quot;</span>)</div>
+<div class="line"><span class="lineno">  205</span>                    <span class="keywordflow">if</span> border:</div>
+<div class="line"><span class="lineno">  206</span>                        string(y - 1, x, (COLS - x) * <span class="stringliteral">&quot;_&quot;</span>)</div>
+<div class="line"><span class="lineno">  207</span>                    <span class="keywordflow">else</span>:</div>
+<div class="line"><span class="lineno">  208</span>                        string(y - 1, x, (COLS - x) * <span class="stringliteral">&quot; &quot;</span>)</div>
+<div class="line"><span class="lineno">  209</span>                    string(y, x, vstup)</div>
+<div class="line"><span class="lineno">  210</span>                    func_reset = <span class="keyword">False</span></div>
+<div class="line"><span class="lineno">  211</span>                    konecna = <span class="keyword">False</span></div>
+<div class="line"><span class="lineno">  212</span>                    <span class="keywordflow">if</span> help <span class="keywordflow">and</span> len(vstup) == 1:</div>
+<div class="line"><span class="lineno">  213</span>                        string(y - 1, x + 2, help)</div>
+<div class="line"><span class="lineno">  214</span>                        string(y, x, vstup)</div>
+<div class="line"><span class="lineno">  215</span>                    <span class="keywordflow">if</span> <span class="keywordflow">not</span> vstup[1:pocet] <span class="keywordflow">in</span> function.keys() <span class="keywordflow">and</span> is_func:</div>
+<div class="line"><span class="lineno">  216</span>                        string(y - 1, x, (COLS - x) * <span class="stringliteral">&quot; &quot;</span>)</div>
+<div class="line"><span class="lineno">  217</span>                        string(y, x + len(_func), <span class="stringliteral">&quot;&quot;</span>)</div>
+<div class="line"><span class="lineno">  218</span>                        is_func = <span class="keyword">False</span></div>
+<div class="line"><span class="lineno">  219</span>                        arg_num = 0</div>
+<div class="line"><span class="lineno">  220</span>                        arg_num_hist = -1</div>
+<div class="line"><span class="lineno">  221</span>                        arg_hist = {}</div>
+<div class="line"><span class="lineno">  222</span>                    <span class="keywordflow">if</span> vstup[1:].split(<span class="stringliteral">&quot; &quot;</span>)[0].split(<span class="stringliteral">&quot;\t&quot;</span>)[0] <span class="keywordflow">in</span> function.keys():</div>
+<div class="line"><span class="lineno">  223</span>                        _func = vstup[1:].split(<span class="stringliteral">&quot; &quot;</span>)[0].split(<span class="stringliteral">&quot;\t&quot;</span>)[0]</div>
+<div class="line"><span class="lineno">  224</span>                        <span class="keywordflow">if</span> function[_func] == <span class="stringliteral">&quot;help&quot;</span>:</div>
+<div class="line"><span class="lineno">  225</span>                            number_of_tabs = vstup.count(<span class="stringliteral">&quot;\t&quot;</span>)</div>
+<div class="line"><span class="lineno">  226</span>                            <span class="keywordflow">if</span> number_of_tabs_hist == 0 <span class="keywordflow">and</span> key <span class="keywordflow">in</span> [</div>
+<div class="line"><span class="lineno">  227</span>                                <span class="stringliteral">&quot;KEY_BTAB&quot;</span>,</div>
+<div class="line"><span class="lineno">  228</span>                                <span class="stringliteral">&quot;KEY_B1&quot;</span>,</div>
+<div class="line"><span class="lineno">  229</span>                            ]:</div>
+<div class="line"><span class="lineno">  230</span>                                number_of_tabs = len(function.keys()) - 1</div>
+<div class="line"><span class="lineno">  231</span>                                vstup += number_of_tabs * <span class="stringliteral">&quot;\t&quot;</span></div>
+<div class="line"><span class="lineno">  232</span>                            <span class="keywordflow">while</span> number_of_tabs &gt; len(function.keys()) - 1:</div>
+<div class="line"><span class="lineno">  233</span>                                number_of_tabs = 0</div>
+<div class="line"><span class="lineno">  234</span>                                vstup = vstup.split(<span class="stringliteral">&quot; &quot;</span>)[0].split(<span class="stringliteral">&quot;\t&quot;</span>)[0]</div>
+<div class="line"><span class="lineno">  235</span>                            indent = 4</div>
+<div class="line"><span class="lineno">  236</span>                            vstup = vstup.split(<span class="stringliteral">&quot; &quot;</span>)[0]</div>
+<div class="line"><span class="lineno">  237</span>                            _help = <span class="stringliteral">&quot;&quot;</span></div>
+<div class="line"><span class="lineno">  238</span>                            <span class="keywordflow">for</span> times, i <span class="keywordflow">in</span> enumerate(function.keys()):</div>
+<div class="line"><span class="lineno">  239</span>                                _help += f<span class="stringliteral">&quot; {i} |&quot;</span></div>
+<div class="line"><span class="lineno">  240</span>                                <span class="keywordflow">if</span> times &lt; number_of_tabs:</div>
+<div class="line"><span class="lineno">  241</span>                                    indent += len(i) + 3</div>
+<div class="line"><span class="lineno">  242</span>                                <span class="keywordflow">elif</span> times == number_of_tabs:</div>
+<div class="line"><span class="lineno">  243</span>                                    indent += int(len(i) / 2)</div>
+<div class="line"><span class="lineno">  244</span>                                    __func_to_use = i</div>
+<div class="line"><span class="lineno">  245</span>                            _help = _help[:-1]</div>
+<div class="line"><span class="lineno">  246</span>                            indent -= 1</div>
+<div class="line"><span class="lineno">  247</span>                            string(</div>
+<div class="line"><span class="lineno">  248</span>                                y - 1,</div>
+<div class="line"><span class="lineno">  249</span>                                x + len(vstup.split(<span class="stringliteral">&quot; &quot;</span>)[0].split(<span class="stringliteral">&quot;\t&quot;</span>)[0]),</div>
+<div class="line"><span class="lineno">  250</span>                                _help,</div>
+<div class="line"><span class="lineno">  251</span>                            )</div>
+<div class="line"><span class="lineno">  252</span>                            string(</div>
+<div class="line"><span class="lineno">  253</span>                                y,</div>
+<div class="line"><span class="lineno">  254</span>                                x</div>
+<div class="line"><span class="lineno">  255</span>                                + indent</div>
+<div class="line"><span class="lineno">  256</span>                                + len(vstup.split(<span class="stringliteral">&quot; &quot;</span>)[0].split(<span class="stringliteral">&quot;\t&quot;</span>)[0])</div>
+<div class="line"><span class="lineno">  257</span>                                - 2,</div>
+<div class="line"><span class="lineno">  258</span>                                <span class="stringliteral">&quot;^&quot;</span>,</div>
+<div class="line"><span class="lineno">  259</span>                            )</div>
+<div class="line"><span class="lineno">  260</span>                            string(y, x, vstup.split(<span class="stringliteral">&quot;\t&quot;</span>)[0])</div>
+<div class="line"><span class="lineno">  261</span>                            number_of_tabs_hist = number_of_tabs</div>
+<div class="line"><span class="lineno">  262</span>                        <span class="keywordflow">elif</span> <span class="keywordflow">not</span> _func <span class="keywordflow">in</span> [<span class="stringliteral">&quot;q&quot;</span>, <span class="stringliteral">&quot;r&quot;</span>]:</div>
+<div class="line"><span class="lineno">  263</span>                            is_func = <span class="keyword">True</span></div>
+<div class="line"><span class="lineno">  264</span>                            pocet = len(_func) + 1</div>
+<div class="line"><span class="lineno">  265</span>                    <span class="keywordflow">if</span> is_func:</div>
+<div class="line"><span class="lineno">  266</span>                        _vstup = list(filter((<span class="stringliteral">&quot;&quot;</span>).__ne__, vstup.split(<span class="stringliteral">&quot; &quot;</span>)))</div>
+<div class="line"><span class="lineno">  267</span>                        increment = 1 <span class="keywordflow">if</span> vstup.split(<span class="stringliteral">&quot; &quot;</span>)[-1] == <span class="stringliteral">&quot;&quot;</span> <span class="keywordflow">else</span> 0</div>
+<div class="line"><span class="lineno">  268</span>                        count = 0</div>
+<div class="line"><span class="lineno">  269</span>                        _increment = 0</div>
+<div class="line"><span class="lineno">  270</span>                        <span class="keywordflow">for</span> times, i <span class="keywordflow">in</span> enumerate(vstup.split(<span class="stringliteral">&quot; &quot;</span>)):</div>
+<div class="line"><span class="lineno">  271</span>                            <span class="keywordflow">if</span> i == <span class="stringliteral">&quot;&quot;</span>:</div>
+<div class="line"><span class="lineno">  272</span>                                <span class="keywordflow">if</span> times == 0 <span class="keywordflow">or</span> times == len(vstup) - 1:</div>
+<div class="line"><span class="lineno">  273</span>                                    <span class="keywordflow">continue</span></div>
+<div class="line"><span class="lineno">  274</span>                                count += 1</div>
+<div class="line"><span class="lineno">  275</span>                            <span class="keywordflow">if</span> i != <span class="stringliteral">&quot;&quot;</span>:</div>
+<div class="line"><span class="lineno">  276</span>                                _increment += count</div>
+<div class="line"><span class="lineno">  277</span>                                count = 0</div>
+<div class="line"><span class="lineno">  278</span>                        _increment -= 1</div>
+<div class="line"><span class="lineno">  279</span>                        <span class="keywordflow">if</span> increment == 1:</div>
+<div class="line"><span class="lineno">  280</span>                            _vstup.append(<span class="stringliteral">&quot;&quot;</span>)</div>
+<div class="line"><span class="lineno">  281</span>                        arg_num = len(_vstup) - 2</div>
+<div class="line"><span class="lineno">  282</span>                        <span class="keywordflow">if</span> arg_num == -1:</div>
+<div class="line"><span class="lineno">  283</span>                            arg_num = 0</div>
+<div class="line"><span class="lineno">  284</span>                        nam = vstup.split(<span class="stringliteral">&quot; &quot;</span>)</div>
+<div class="line"><span class="lineno">  285</span>                        <span class="keywordflow">if</span> len(nam) == 1:</div>
+<div class="line"><span class="lineno">  286</span>                            posun = len(_func) + 2 + _increment</div>
+<div class="line"><span class="lineno">  287</span>                        <span class="keywordflow">else</span>:</div>
+<div class="line"><span class="lineno">  288</span>                            posun = (</div>
+<div class="line"><span class="lineno">  289</span>                                sum([len(i) <span class="keywordflow">for</span> i <span class="keywordflow">in</span> vstup.split(<span class="stringliteral">&quot; &quot;</span>)[:-1]])</div>
+<div class="line"><span class="lineno">  290</span>                                + 2</div>
+<div class="line"><span class="lineno">  291</span>                                + _increment</div>
+<div class="line"><span class="lineno">  292</span>                                + arg_num</div>
+<div class="line"><span class="lineno">  293</span>                            )</div>
+<div class="line"><span class="lineno">  294</span>                        <span class="keywordflow">try</span>:</div>
+<div class="line"><span class="lineno">  295</span>                            <span class="keywordflow">if</span> key <span class="keywordflow">in</span> [<span class="stringliteral">&quot;\t&quot;</span>, <span class="stringliteral">&quot;KEY_BTAB&quot;</span>]:</div>
+<div class="line"><span class="lineno">  296</span>                                <span class="keywordflow">if</span> isinstance(function[_func][4][arg_num], list):</div>
+<div class="line"><span class="lineno">  297</span>                                    _help = function[_func][4][arg_num]</div>
+<div class="line"><span class="lineno">  298</span>                                <span class="keywordflow">elif</span> isinstance(function[_func][4][arg_num], dict):</div>
+<div class="line"><span class="lineno">  299</span>                                    _help = function[_func][4][arg_num][main_arg]</div>
+<div class="line"><span class="lineno">  300</span>                                string(y - 1, COLS - 14, <span class="stringliteral">&quot;Running Engine&quot;</span>)</div>
+<div class="line"><span class="lineno">  301</span>                                <span class="keywordflow">if</span> isinstance(_help[0], list) <span class="keywordflow">and</span> <span class="keywordflow">not</span> _in_tab:</div>
+<div class="line"><span class="lineno">  302</span>                                    _return = search_engine_double(</div>
+<div class="line"><span class="lineno">  303</span>                                        _vstup[arg_num + 1], _help</div>
+<div class="line"><span class="lineno">  304</span>                                    )</div>
+<div class="line"><span class="lineno">  305</span>                                <span class="keywordflow">if</span> isinstance(_help[0], str) <span class="keywordflow">and</span> <span class="keywordflow">not</span> _in_tab:</div>
+<div class="line"><span class="lineno">  306</span>                                    _return = search_engine(_vstup[arg_num + 1], _help)</div>
+<div class="line"><span class="lineno">  307</span>                                string(y - 1, COLS - 14, <span class="stringliteral">&quot;              &quot;</span>)</div>
+<div class="line"><span class="lineno">  308</span>                                <span class="keywordflow">if</span> _return <span class="keywordflow">is</span> <span class="keywordflow">not</span> <span class="keywordtype">None</span>:</div>
+<div class="line"><span class="lineno">  309</span>                                    <span class="keywordflow">if</span> key == <span class="stringliteral">&quot;KEY_BTAB&quot;</span>:</div>
+<div class="line"><span class="lineno">  310</span>                                        _in_tab_num -= 2</div>
+<div class="line"><span class="lineno">  311</span>                                    <span class="keywordflow">if</span> _in_tab_num &gt;= len(_return):</div>
+<div class="line"><span class="lineno">  312</span>                                        _in_tab_num = 0</div>
+<div class="line"><span class="lineno">  313</span>                                    vstup = (</div>
+<div class="line"><span class="lineno">  314</span>                                        vstup.rsplit(<span class="stringliteral">&quot; &quot;</span>, 1)[0]</div>
+<div class="line"><span class="lineno">  315</span>                                        + <span class="stringliteral">&quot; &quot;</span></div>
+<div class="line"><span class="lineno">  316</span>                                        + _return[_in_tab_num].replace(<span class="stringliteral">&quot; &quot;</span>, <span class="stringliteral">&quot;_&quot;</span>)</div>
+<div class="line"><span class="lineno">  317</span>                                    )</div>
+<div class="line"><span class="lineno">  318</span>                                    string(y, x, (COLS - x) * <span class="stringliteral">&quot; &quot;</span>)</div>
+<div class="line"><span class="lineno">  319</span>                                    string(y, x, vstup)</div>
+<div class="line"><span class="lineno">  320</span>                                    _in_tab = <span class="keyword">True</span></div>
+<div class="line"><span class="lineno">  321</span>                                    _in_tab_num += 1</div>
 <div class="line"><span class="lineno">  322</span>                            <span class="keywordflow">else</span>:</div>
-<div class="line"><span class="lineno">  323</span>                                string(y - 1, x, (COLS - x) * <span class="stringliteral">&quot; &quot;</span>)</div>
-<div class="line"><span class="lineno">  324</span>                            <span class="keywordflow">if</span> arg_num &lt; arg_num_hist:</div>
-<div class="line"><span class="lineno">  325</span>                                <span class="keywordflow">try</span>:</div>
-<div class="line"><span class="lineno">  326</span>                                    arg_hist.pop(function[_func][3][arg_num_hist])</div>
-<div class="line"><span class="lineno">  327</span>                                <span class="keywordflow">except</span> IndexError:</div>
-<div class="line"><span class="lineno">  328</span>                                    <span class="keywordflow">pass</span></div>
-<div class="line"><span class="lineno">  329</span>                            arg_num_hist = arg_num</div>
-<div class="line"><span class="lineno">  330</span>                        <span class="keywordflow">try</span>:</div>
-<div class="line"><span class="lineno">  331</span>                            arg_hist[function[_func][3][arg_num]] = x + posun</div>
-<div class="line"><span class="lineno">  332</span>                            <span class="keywordflow">for</span> times, i <span class="keywordflow">in</span> arg_hist.items():</div>
-<div class="line"><span class="lineno">  333</span>                                string(y - 1, x + i, times)</div>
-<div class="line"><span class="lineno">  334</span>                            string(y - 1, x + posun, function[_func][3][arg_num])</div>
-<div class="line"><span class="lineno">  335</span>                            more_arg = <span class="stringliteral">&quot;&quot;</span></div>
-<div class="line"><span class="lineno">  336</span>                            <span class="keywordflow">for</span> i <span class="keywordflow">in</span> range(arg_num + 1, len(function[_func][3])):</div>
-<div class="line"><span class="lineno">  337</span>                                more_arg += <span class="stringliteral">&quot; &quot;</span> + function[_func][3][i] + <span class="stringliteral">&quot; |&quot;</span></div>
-<div class="line"><span class="lineno">  338</span>                            more_arg = more_arg[:-1]</div>
-<div class="line"><span class="lineno">  339</span>                            more_posun = (</div>
-<div class="line"><span class="lineno">  340</span>                                len(vstup) - posun - len(function[_func][3][arg_num])</div>
-<div class="line"><span class="lineno">  341</span>                            )</div>
-<div class="line"><span class="lineno">  342</span>                            <span class="keywordflow">if</span> more_posun &lt; 0:</div>
-<div class="line"><span class="lineno">  343</span>                                more_posun = 0</div>
-<div class="line"><span class="lineno">  344</span>                            string(</div>
-<div class="line"><span class="lineno">  345</span>                                y - 1,</div>
-<div class="line"><span class="lineno">  346</span>                                x</div>
-<div class="line"><span class="lineno">  347</span>                                + posun</div>
-<div class="line"><span class="lineno">  348</span>                                + len(function[_func][3][arg_num])</div>
-<div class="line"><span class="lineno">  349</span>                                + more_posun,</div>
-<div class="line"><span class="lineno">  350</span>                                more_arg,</div>
-<div class="line"><span class="lineno">  351</span>                            )</div>
-<div class="line"><span class="lineno">  352</span>                            string(y, x + len(vstup), <span class="stringliteral">&quot;&quot;</span>)</div>
-<div class="line"><span class="lineno">  353</span>                        <span class="keywordflow">except</span> IndexError:</div>
-<div class="line"><span class="lineno">  354</span>                            <span class="keywordflow">pass</span></div>
-<div class="line"><span class="lineno">  355</span>                    <span class="keywordflow">if</span> ikey == <span class="stringliteral">&quot;&quot;</span> <span class="keywordflow">and</span> <span class="keywordflow">not</span> inp:</div>
-<div class="line"><span class="lineno">  356</span>                        inp = <span class="keyword">True</span></div>
-<div class="line"><span class="lineno">  357</span>                        vstup += ikey</div>
-<div class="line"><span class="lineno">  358</span>                        <span class="comment"># curses.nocbreak()</span></div>
-<div class="line"><span class="lineno">  359</span>                        <span class="comment"># stdscr.keypad(False)</span></div>
-<div class="line"><span class="lineno">  360</span>                        curses.echo()</div>
-<div class="line"><span class="lineno">  361</span>                        string(y + 1, x, ikey)</div>
-<div class="line"><span class="lineno">  362</span>                    key = stdscr.getkey()</div>
-<div class="line"><span class="lineno">  363</span>                    <span class="keywordflow">if</span> inp:</div>
-<div class="line"><span class="lineno">  364</span>                        <span class="keywordflow">if</span> <span class="keywordflow">not</span> key == <span class="stringliteral">&quot;\n&quot;</span>:</div>
-<div class="line"><span class="lineno">  365</span>                            <span class="keywordflow">if</span> key == <span class="stringliteral">&quot;\x08&quot;</span>:</div>
-<div class="line"><span class="lineno">  366</span>                                <span class="keywordflow">if</span> _func <span class="keywordflow">is</span> <span class="keywordflow">not</span> <span class="keywordtype">None</span> <span class="keywordflow">and</span> function[_func] == <span class="stringliteral">&quot;help&quot;</span>:</div>
-<div class="line"><span class="lineno">  367</span>                                    vstup = ikey + _func[:-1]</div>
-<div class="line"><span class="lineno">  368</span>                                    _func = <span class="keywordtype">None</span></div>
-<div class="line"><span class="lineno">  369</span>                                <span class="keywordflow">else</span>:</div>
-<div class="line"><span class="lineno">  370</span>                                    vstup = vstup[0:-1]</div>
-<div class="line"><span class="lineno">  371</span>                                <span class="keywordflow">if</span> vstup == <span class="stringliteral">&quot;&quot;</span>:</div>
-<div class="line"><span class="lineno">  372</span>                                    vstup = <span class="stringliteral">&quot;:&quot;</span></div>
-<div class="line"><span class="lineno">  373</span>                                string(y, x + len(vstup), <span class="stringliteral">&quot;&quot;</span>)</div>
-<div class="line"><span class="lineno">  374</span>                            <span class="keywordflow">elif</span> key == <span class="stringliteral">&quot;KEY_BTAB&quot;</span>:</div>
-<div class="line"><span class="lineno">  375</span>                                <span class="keywordflow">if</span> _func == <span class="stringliteral">&quot;help&quot;</span>:</div>
-<div class="line"><span class="lineno">  376</span>                                    <span class="keywordflow">if</span> vstup[-1] <span class="keywordflow">in</span> [<span class="stringliteral">&quot;\t&quot;</span>, <span class="stringliteral">&quot; &quot;</span>]:</div>
-<div class="line"><span class="lineno">  377</span>                                        vstup = vstup[:-1]</div>
-<div class="line"><span class="lineno">  378</span>                                        <span class="keywordflow">while</span> vstup[-1] == <span class="stringliteral">&quot; &quot;</span>:</div>
-<div class="line"><span class="lineno">  379</span>                                            vstup = vstup[:-1]</div>
-<div class="line"><span class="lineno">  380</span>                            <span class="keywordflow">else</span>:</div>
-<div class="line"><span class="lineno">  381</span>                                vstup += key</div>
-<div class="line"><span class="lineno">  382</span>                        <span class="keywordflow">else</span>:</div>
-<div class="line"><span class="lineno">  383</span>                            vstup = vstup.strip() + <span class="stringliteral">&quot; &quot;</span></div>
-<div class="line"><span class="lineno">  384</span>                    <span class="keywordflow">if</span> key == ikey:</div>
-<div class="line"><span class="lineno">  385</span>                        <span class="keywordflow">if</span> vstup == ikey * 2:</div>
-<div class="line"><span class="lineno">  386</span>                            inp = <span class="keyword">False</span></div>
-<div class="line"><span class="lineno">  387</span>                            konecna = <span class="keyword">True</span></div>
-<div class="line"><span class="lineno">  388</span>                        <span class="keywordflow">else</span>:</div>
-<div class="line"><span class="lineno">  389</span>                            inp = <span class="keyword">True</span></div>
-<div class="line"><span class="lineno">  390</span>                            vstup += ikey</div>
-<div class="line"><span class="lineno">  391</span>                            <span class="comment"># curses.nocbreak()</span></div>
-<div class="line"><span class="lineno">  392</span>                            <span class="comment"># stdscr.keypad(False)</span></div>
-<div class="line"><span class="lineno">  393</span>                            curses.echo()</div>
-<div class="line"><span class="lineno">  394</span>                            <span class="keywordflow">if</span> border:</div>
-<div class="line"><span class="lineno">  395</span>                                string(y + 1, x, ikey)</div>
-<div class="line"><span class="lineno">  396</span>                            <span class="keywordflow">else</span>:</div>
-<div class="line"><span class="lineno">  397</span>                                string(y, x, ikey)</div>
-<div class="line"><span class="lineno">  398</span>                    <span class="keywordflow">if</span> key == <span class="stringliteral">&quot;\n&quot;</span>:</div>
-<div class="line"><span class="lineno">  399</span>                        <span class="keywordflow">if</span> _func <span class="keywordflow">is</span> <span class="keywordflow">not</span> <span class="keywordtype">None</span>:</div>
-<div class="line"><span class="lineno">  400</span>                            <span class="keywordflow">if</span> function[_func] == <span class="stringliteral">&quot;help&quot;</span>:</div>
-<div class="line"><span class="lineno">  401</span>                                vstup = <span class="stringliteral">&quot;:&quot;</span> + __func_to_use + <span class="stringliteral">&quot; &quot;</span></div>
-<div class="line"><span class="lineno">  402</span>                            <span class="keywordflow">else</span>:</div>
-<div class="line"><span class="lineno">  403</span>                                konecna = <span class="keyword">True</span></div>
-<div class="line"><span class="lineno">  404</span>                                inp = <span class="keyword">False</span></div>
-<div class="line"><span class="lineno">  405</span>                                curses.cbreak()</div>
-<div class="line"><span class="lineno">  406</span>                                stdscr.keypad(<span class="keyword">True</span>)</div>
-<div class="line"><span class="lineno">  407</span>                                curses.noecho()</div>
-<div class="line"><span class="lineno">  408</span>                            <span class="keywordflow">if</span> border:</div>
-<div class="line"><span class="lineno">  409</span>                                string(y + 1, x, int(COLS - 1 - x) * <span class="stringliteral">&quot;_&quot;</span>)</div>
-<div class="line"><span class="lineno">  410</span>                                string(y - 1, x, COLS * <span class="stringliteral">&quot;_&quot;</span>)</div>
+<div class="line"><span class="lineno">  323</span>                                _in_tab = <span class="keyword">False</span></div>
+<div class="line"><span class="lineno">  324</span>                                _in_tab_num = 0</div>
+<div class="line"><span class="lineno">  325</span>                        <span class="keywordflow">except</span> IndexError:</div>
+<div class="line"><span class="lineno">  326</span>                            _in_tab = <span class="keyword">False</span></div>
+<div class="line"><span class="lineno">  327</span>                            _in_tab_num = 0</div>
+<div class="line"><span class="lineno">  328</span>                        <span class="keywordflow">if</span> _in_tab <span class="keywordflow">and</span> key == <span class="stringliteral">&quot;\t&quot;</span>:</div>
+<div class="line"><span class="lineno">  329</span>                            vstup = vstup.replace(<span class="stringliteral">&quot;\t&quot;</span>, <span class="stringliteral">&quot; &quot;</span>)</div>
+<div class="line"><span class="lineno">  330</span>                        <span class="keywordflow">if</span> arg_num != arg_num_hist:</div>
+<div class="line"><span class="lineno">  331</span>                            <span class="keywordflow">if</span> border:</div>
+<div class="line"><span class="lineno">  332</span>                                string(y - 1, x, (COLS - x) * <span class="stringliteral">&quot;_&quot;</span>)</div>
+<div class="line"><span class="lineno">  333</span>                            <span class="keywordflow">else</span>:</div>
+<div class="line"><span class="lineno">  334</span>                                string(y - 1, x, (COLS - x) * <span class="stringliteral">&quot; &quot;</span>)</div>
+<div class="line"><span class="lineno">  335</span>                            <span class="keywordflow">if</span> arg_num &lt; arg_num_hist:</div>
+<div class="line"><span class="lineno">  336</span>                                <span class="keywordflow">try</span>:</div>
+<div class="line"><span class="lineno">  337</span>                                    <span class="keywordflow">if</span> isinstance(</div>
+<div class="line"><span class="lineno">  338</span>                                        function[_func][3][arg_num_hist], dict</div>
+<div class="line"><span class="lineno">  339</span>                                    ):</div>
+<div class="line"><span class="lineno">  340</span>                                        arg_hist.pop(</div>
+<div class="line"><span class="lineno">  341</span>                                            function[_func][3][arg_num_hist][main_arg]</div>
+<div class="line"><span class="lineno">  342</span>                                        )</div>
+<div class="line"><span class="lineno">  343</span>                                    <span class="keywordflow">else</span>:</div>
+<div class="line"><span class="lineno">  344</span>                                        arg_hist.pop(function[_func][3][arg_num_hist])</div>
+<div class="line"><span class="lineno">  345</span>                                <span class="keywordflow">except</span> IndexError:</div>
+<div class="line"><span class="lineno">  346</span>                                    <span class="keywordflow">pass</span></div>
+<div class="line"><span class="lineno">  347</span>                            arg_num_hist = arg_num</div>
+<div class="line"><span class="lineno">  348</span>                        <span class="keywordflow">try</span>:</div>
+<div class="line"><span class="lineno">  349</span>                            <span class="keywordflow">if</span> isinstance(function[_func][3][arg_num], dict):</div>
+<div class="line"><span class="lineno">  350</span>                                arg_hist[function[_func][3][arg_num][main_arg]] = (</div>
+<div class="line"><span class="lineno">  351</span>                                    x + posun</div>
+<div class="line"><span class="lineno">  352</span>                                )</div>
+<div class="line"><span class="lineno">  353</span>                            <span class="keywordflow">else</span>:</div>
+<div class="line"><span class="lineno">  354</span>                                arg_hist[function[_func][3][arg_num]] = x + posun</div>
+<div class="line"><span class="lineno">  355</span>                            <span class="keywordflow">for</span> times, i <span class="keywordflow">in</span> arg_hist.items():</div>
+<div class="line"><span class="lineno">  356</span>                                string(y - 1, x + i, times)</div>
+<div class="line"><span class="lineno">  357</span>                            <span class="keywordflow">if</span> isinstance(function[_func][3][arg_num], dict):</div>
+<div class="line"><span class="lineno">  358</span>                                string(</div>
+<div class="line"><span class="lineno">  359</span>                                    y - 1,</div>
+<div class="line"><span class="lineno">  360</span>                                    x + posun,</div>
+<div class="line"><span class="lineno">  361</span>                                    function[_func][3][arg_num][main_arg],</div>
+<div class="line"><span class="lineno">  362</span>                                )</div>
+<div class="line"><span class="lineno">  363</span>                            <span class="keywordflow">else</span>:</div>
+<div class="line"><span class="lineno">  364</span>                                string(y - 1, x + posun, function[_func][3][arg_num])</div>
+<div class="line"><span class="lineno">  365</span>                            more_arg = <span class="stringliteral">&quot;&quot;</span></div>
+<div class="line"><span class="lineno">  366</span>                            <span class="keywordflow">for</span> i <span class="keywordflow">in</span> range(arg_num + 1, len(function[_func][3])):</div>
+<div class="line"><span class="lineno">  367</span>                                <span class="keywordflow">if</span> isinstance(function[_func][3][i], dict):</div>
+<div class="line"><span class="lineno">  368</span>                                    <span class="keywordflow">try</span>:</div>
+<div class="line"><span class="lineno">  369</span>                                        <span class="keywordflow">if</span> (</div>
+<div class="line"><span class="lineno">  370</span>                                            vstup.split(<span class="stringliteral">&quot; &quot;</span>)[1]</div>
+<div class="line"><span class="lineno">  371</span>                                            <span class="keywordflow">in</span> function[_func][3][i].keys()</div>
+<div class="line"><span class="lineno">  372</span>                                        ):</div>
+<div class="line"><span class="lineno">  373</span>                                            more_arg += (</div>
+<div class="line"><span class="lineno">  374</span>                                                <span class="stringliteral">&quot; &quot;</span></div>
+<div class="line"><span class="lineno">  375</span>                                                + function[_func][3][i][</div>
+<div class="line"><span class="lineno">  376</span>                                                    vstup.split(<span class="stringliteral">&quot; &quot;</span>)[1]</div>
+<div class="line"><span class="lineno">  377</span>                                                ]</div>
+<div class="line"><span class="lineno">  378</span>                                                + <span class="stringliteral">&quot; |&quot;</span></div>
+<div class="line"><span class="lineno">  379</span>                                            )</div>
+<div class="line"><span class="lineno">  380</span>                                            main_arg = vstup.split(<span class="stringliteral">&quot; &quot;</span>)[1]</div>
+<div class="line"><span class="lineno">  381</span>                                    <span class="keywordflow">except</span> IndexError:</div>
+<div class="line"><span class="lineno">  382</span>                                        <span class="keywordflow">pass</span></div>
+<div class="line"><span class="lineno">  383</span>                                <span class="keywordflow">else</span>:</div>
+<div class="line"><span class="lineno">  384</span>                                    more_arg += <span class="stringliteral">&quot; &quot;</span> + function[_func][3][i] + <span class="stringliteral">&quot; |&quot;</span></div>
+<div class="line"><span class="lineno">  385</span> </div>
+<div class="line"><span class="lineno">  386</span>                            more_arg = more_arg[:-1]</div>
+<div class="line"><span class="lineno">  387</span>                            more_posun = (</div>
+<div class="line"><span class="lineno">  388</span>                                len(vstup) - posun - len(function[_func][3][arg_num])</div>
+<div class="line"><span class="lineno">  389</span>                            )</div>
+<div class="line"><span class="lineno">  390</span>                            <span class="keywordflow">if</span> len(more_arg) &gt; COLS - x - more_posun - posun - 3:</div>
+<div class="line"><span class="lineno">  391</span>                                more_arg = more_arg[</div>
+<div class="line"><span class="lineno">  392</span>                                    0 : COLS</div>
+<div class="line"><span class="lineno">  393</span>                                    - x</div>
+<div class="line"><span class="lineno">  394</span>                                    - more_posun</div>
+<div class="line"><span class="lineno">  395</span>                                    - posun</div>
+<div class="line"><span class="lineno">  396</span>                                    - len(function[_func][3][arg_num])</div>
+<div class="line"><span class="lineno">  397</span>                                    - _increment</div>
+<div class="line"><span class="lineno">  398</span>                                    - 3</div>
+<div class="line"><span class="lineno">  399</span>                                ]</div>
+<div class="line"><span class="lineno">  400</span>                            <span class="keywordflow">if</span> more_posun &lt; 0:</div>
+<div class="line"><span class="lineno">  401</span>                                more_posun = 0</div>
+<div class="line"><span class="lineno">  402</span>                            <span class="keywordflow">if</span> isinstance(function[_func][3][arg_num], dict):</div>
+<div class="line"><span class="lineno">  403</span>                                string(</div>
+<div class="line"><span class="lineno">  404</span>                                    y - 1,</div>
+<div class="line"><span class="lineno">  405</span>                                    x</div>
+<div class="line"><span class="lineno">  406</span>                                    + posun</div>
+<div class="line"><span class="lineno">  407</span>                                    + len(function[_func][3][arg_num][main_arg])</div>
+<div class="line"><span class="lineno">  408</span>                                    + more_posun,</div>
+<div class="line"><span class="lineno">  409</span>                                    more_arg,</div>
+<div class="line"><span class="lineno">  410</span>                                )</div>
 <div class="line"><span class="lineno">  411</span>                            <span class="keywordflow">else</span>:</div>
-<div class="line"><span class="lineno">  412</span>                                string(y, x, int(COLS - 1 - x) * <span class="stringliteral">&quot; &quot;</span>)</div>
-<div class="line"><span class="lineno">  413</span>                                string(y - 1, x, COLS * <span class="stringliteral">&quot; &quot;</span>)</div>
-<div class="line"><span class="lineno">  414</span>                    <span class="keywordflow">if</span> konecna:</div>
-<div class="line"><span class="lineno">  415</span>                        limit -= 1</div>
-<div class="line"><span class="lineno">  416</span>                        <span class="keywordflow">if</span> <span class="keywordflow">not</span> ikey == <span class="stringliteral">&quot;&quot;</span>:</div>
-<div class="line"><span class="lineno">  417</span>                            vstup = vstup[1:-1]</div>
-<div class="line"><span class="lineno">  418</span>                        <span class="keywordflow">else</span>:</div>
-<div class="line"><span class="lineno">  419</span>                            vstup = vstup[:-1]</div>
-<div class="line"><span class="lineno">  420</span>                        <span class="keywordflow">for</span> func <span class="keywordflow">in</span> function:</div>
-<div class="line"><span class="lineno">  421</span>                            to_func = <span class="keyword">False</span></div>
-<div class="line"><span class="lineno">  422</span>                            func_args = <span class="keywordtype">None</span></div>
-<div class="line"><span class="lineno">  423</span>                            <span class="keywordflow">if</span> isinstance(function[func], list):</div>
-<div class="line"><span class="lineno">  424</span>                                <span class="keywordflow">if</span> len(function[func]) == 2:</div>
-<div class="line"><span class="lineno">  425</span>                                    func_args = function[func][1]</div>
-<div class="line"><span class="lineno">  426</span>                                    <span class="keywordflow">if</span> <span class="keywordflow">not</span> isinstance(func_args, list):</div>
-<div class="line"><span class="lineno">  427</span>                                        <span class="keywordflow">raise</span> ValueError()</div>
-<div class="line"><span class="lineno">  428</span>                                    <span class="keywordflow">if</span> func == vstup.split(<span class="stringliteral">&quot; &quot;</span>)[0]:</div>
-<div class="line"><span class="lineno">  429</span>                                        <span class="keywordflow">if</span> function[func][1][0] == <span class="stringliteral">&quot;args&quot;</span>:</div>
-<div class="line"><span class="lineno">  430</span>                                            func_args = vstup[len(func) :].split(<span class="stringliteral">&quot; &quot;</span>)</div>
-<div class="line"><span class="lineno">  431</span>                                            func_args = list(</div>
-<div class="line"><span class="lineno">  432</span>                                                filter((<span class="stringliteral">&quot;&quot;</span>).__ne__, func_args)</div>
-<div class="line"><span class="lineno">  433</span>                                            )</div>
-<div class="line"><span class="lineno">  434</span>                                        command = function[func][0]</div>
-<div class="line"><span class="lineno">  435</span>                                        to_func = <span class="keyword">True</span></div>
-<div class="line"><span class="lineno">  436</span>                                        <span class="keywordflow">try</span>:</div>
-<div class="line"><span class="lineno">  437</span>                                            ids[func]</div>
-<div class="line"><span class="lineno">  438</span>                                        <span class="keywordflow">except</span> KeyError:</div>
-<div class="line"><span class="lineno">  439</span>                                            ids[func] = get_id()</div>
-<div class="line"><span class="lineno">  440</span>                                <span class="keywordflow">elif</span> (</div>
-<div class="line"><span class="lineno">  441</span>                                    func == vstup[function[func][0] : function[func][1]]</div>
-<div class="line"><span class="lineno">  442</span>                                ):</div>
-<div class="line"><span class="lineno">  443</span>                                    to_func = <span class="keyword">True</span></div>
-<div class="line"><span class="lineno">  444</span>                                    <span class="keywordflow">if</span> callable(function[func][2]):</div>
-<div class="line"><span class="lineno">  445</span>                                        command = function[func][2]</div>
-<div class="line"><span class="lineno">  446</span>                                    <span class="keywordflow">elif</span> len(function[func][2]) == 2:</div>
-<div class="line"><span class="lineno">  447</span>                                        <span class="keywordflow">if</span> function[func][2][1][0] == <span class="stringliteral">&quot;args&quot;</span>:</div>
-<div class="line"><span class="lineno">  448</span>                                            <span class="keywordflow">try</span>:</div>
-<div class="line"><span class="lineno">  449</span>                                                func_args = vstup.split(<span class="stringliteral">&quot; &quot;</span>, 1)[</div>
-<div class="line"><span class="lineno">  450</span>                                                    1</div>
-<div class="line"><span class="lineno">  451</span>                                                ].split(<span class="stringliteral">&quot; &quot;</span>)</div>
-<div class="line"><span class="lineno">  452</span>                                            <span class="keywordflow">except</span> IndexError:</div>
-<div class="line"><span class="lineno">  453</span>                                                <span class="keywordflow">if</span> nof:</div>
-<div class="line"><span class="lineno">  454</span>                                                    func_args = vstup</div>
-<div class="line"><span class="lineno">  455</span>                                                <span class="keywordflow">else</span>:</div>
-<div class="line"><span class="lineno">  456</span>                                                    <span class="keywordflow">raise</span> ValueError</div>
-<div class="line"><span class="lineno">  457</span>                                            func_args = list(</div>
-<div class="line"><span class="lineno">  458</span>                                                filter((<span class="stringliteral">&quot;&quot;</span>).__ne__, func_args)</div>
-<div class="line"><span class="lineno">  459</span>                                            )</div>
-<div class="line"><span class="lineno">  460</span>                                        <span class="keywordflow">else</span>:</div>
-<div class="line"><span class="lineno">  461</span>                                            func_args = function[func][2][1]</div>
-<div class="line"><span class="lineno">  462</span>                                            <span class="keywordflow">if</span> <span class="keywordflow">not</span> isinstance(func_args, list):</div>
-<div class="line"><span class="lineno">  463</span>                                                <span class="keywordflow">raise</span> ValueError()</div>
-<div class="line"><span class="lineno">  464</span>                                        command = function[func][2][0]</div>
-<div class="line"><span class="lineno">  465</span>                                    <span class="keywordflow">else</span>:</div>
-<div class="line"><span class="lineno">  466</span>                                        command = function[func][2]</div>
-<div class="line"><span class="lineno">  467</span>                                    <span class="keywordflow">try</span>:</div>
-<div class="line"><span class="lineno">  468</span>                                        ids[func]</div>
-<div class="line"><span class="lineno">  469</span>                                    <span class="keywordflow">except</span> KeyError:</div>
-<div class="line"><span class="lineno">  470</span>                                        ids[func] = get_id()</div>
-<div class="line"><span class="lineno">  471</span>                            <span class="keywordflow">else</span>:</div>
-<div class="line"><span class="lineno">  472</span>                                <span class="keywordflow">if</span> func == vstup:</div>
-<div class="line"><span class="lineno">  473</span>                                    <span class="keywordflow">try</span>:</div>
-<div class="line"><span class="lineno">  474</span>                                        ids[func]</div>
-<div class="line"><span class="lineno">  475</span>                                    <span class="keywordflow">except</span> KeyError:</div>
-<div class="line"><span class="lineno">  476</span>                                        ids[func] = get_id()</div>
-<div class="line"><span class="lineno">  477</span>                                    to_func = <span class="keyword">True</span></div>
-<div class="line"><span class="lineno">  478</span>                                    command = function[func]</div>
-<div class="line"><span class="lineno">  479</span> </div>
-<div class="line"><span class="lineno">  480</span>                            <span class="keywordflow">if</span> to_func:</div>
-<div class="line"><span class="lineno">  481</span>                                <span class="keywordflow">if</span> command == <span class="stringliteral">&quot;break&quot;</span>:</div>
-<div class="line"><span class="lineno">  482</span>                                    end = <span class="keyword">True</span></div>
-<div class="line"><span class="lineno">  483</span>                                    <span class="keywordflow">break</span></div>
-<div class="line"><span class="lineno">  484</span>                                <span class="keywordflow">if</span> command == <span class="stringliteral">&quot;help&quot;</span>:</div>
-<div class="line"><span class="lineno">  485</span>                                    <span class="keywordflow">continue</span></div>
-<div class="line"><span class="lineno">  486</span>                                <span class="keywordflow">if</span> command == <span class="stringliteral">&quot;reset&quot;</span>:</div>
-<div class="line"><span class="lineno">  487</span>                                    <span class="keywordflow">try</span>:</div>
-<div class="line"><span class="lineno">  488</span>                                        self.reset(</div>
-<div class="line"><span class="lineno">  489</span>                                            history[</div>
-<div class="line"><span class="lineno">  490</span>                                                history_number - 2 - history_in_row * 2</div>
-<div class="line"><span class="lineno">  491</span>                                            ]</div>
-<div class="line"><span class="lineno">  492</span>                                        )</div>
-<div class="line"><span class="lineno">  493</span>                                        history_in_row += 1</div>
-<div class="line"><span class="lineno">  494</span>                                        func_reset = <span class="keyword">True</span></div>
-<div class="line"><span class="lineno">  495</span>                                    <span class="keywordflow">except</span> KeyError:</div>
-<div class="line"><span class="lineno">  496</span>                                        <span class="keywordflow">pass</span></div>
-<div class="line"><span class="lineno">  497</span>                                <span class="keywordflow">else</span>:</div>
-<div class="line"><span class="lineno">  498</span>                                    <span class="keywordflow">if</span> last_command == command:</div>
-<div class="line"><span class="lineno">  499</span>                                        self.restore(last_command_history[ids[func]])</div>
-<div class="line"><span class="lineno">  500</span>                                    history_in_row = 0</div>
-<div class="line"><span class="lineno">  501</span>                                    in_func = <span class="keyword">True</span></div>
-<div class="line"><span class="lineno">  502</span>                                    current_id = func</div>
-<div class="line"><span class="lineno">  503</span>                                    <span class="keywordflow">if</span> func_args <span class="keywordflow">is</span> <span class="keywordflow">not</span> <span class="keywordtype">None</span>:</div>
-<div class="line"><span class="lineno">  504</span>                                        command(*func_args)</div>
-<div class="line"><span class="lineno">  505</span>                                    <span class="keywordflow">else</span>:</div>
-<div class="line"><span class="lineno">  506</span>                                        command()</div>
-<div class="line"><span class="lineno">  507</span>                                    last_command = command</div>
-<div class="line"><span class="lineno">  508</span>                                    in_func = <span class="keyword">False</span></div>
-<div class="line"><span class="lineno">  509</span>                                self.add_history(window)</div>
-<div class="line"><span class="lineno">  510</span>                        func_args = <span class="keywordtype">None</span></div>
-<div class="line"><span class="lineno">  511</span>                        vstup = <span class="stringliteral">&quot;&quot;</span></div>
-<div class="line"><span class="lineno">  512</span>                    <span class="keywordflow">if</span> limit == 0:</div>
-<div class="line"><span class="lineno">  513</span>                        <span class="keywordflow">break</span></div>
-<div class="line"><span class="lineno">  514</span>                    <span class="keywordflow">if</span> end:</div>
-<div class="line"><span class="lineno">  515</span>                        <span class="keywordflow">break</span></div>
-<div class="line"><span class="lineno">  516</span>                self.add_history(window)</div>
-<div class="line"><span class="lineno">  517</span>        <span class="keywordflow">return</span> self</div>
-<div class="line"><span class="lineno">  518</span> </div>
+<div class="line"><span class="lineno">  412</span>                                string(</div>
+<div class="line"><span class="lineno">  413</span>                                    y - 1,</div>
+<div class="line"><span class="lineno">  414</span>                                    x</div>
+<div class="line"><span class="lineno">  415</span>                                    + posun</div>
+<div class="line"><span class="lineno">  416</span>                                    + len(function[_func][3][arg_num])</div>
+<div class="line"><span class="lineno">  417</span>                                    + more_posun,</div>
+<div class="line"><span class="lineno">  418</span>                                    more_arg,</div>
+<div class="line"><span class="lineno">  419</span>                                )</div>
+<div class="line"><span class="lineno">  420</span>                            string(y, x + len(vstup), <span class="stringliteral">&quot;&quot;</span>)</div>
+<div class="line"><span class="lineno">  421</span>                        <span class="keywordflow">except</span> IndexError:</div>
+<div class="line"><span class="lineno">  422</span>                            <span class="keywordflow">pass</span></div>
+<div class="line"><span class="lineno">  423</span>                    <span class="keywordflow">if</span> ikey == <span class="stringliteral">&quot;&quot;</span> <span class="keywordflow">and</span> <span class="keywordflow">not</span> inp:</div>
+<div class="line"><span class="lineno">  424</span>                        inp = <span class="keyword">True</span></div>
+<div class="line"><span class="lineno">  425</span>                        vstup += ikey</div>
+<div class="line"><span class="lineno">  426</span>                        <span class="comment"># curses.nocbreak()</span></div>
+<div class="line"><span class="lineno">  427</span>                        <span class="comment"># stdscr.keypad(False)</span></div>
+<div class="line"><span class="lineno">  428</span>                        curses.echo()</div>
+<div class="line"><span class="lineno">  429</span>                        string(y + 1, x, ikey)</div>
+<div class="line"><span class="lineno">  430</span>                    key = stdscr.getkey()</div>
+<div class="line"><span class="lineno">  431</span>                    <span class="keywordflow">if</span> inp:</div>
+<div class="line"><span class="lineno">  432</span>                        <span class="keywordflow">if</span> <span class="keywordflow">not</span> key == <span class="stringliteral">&quot;\n&quot;</span>:</div>
+<div class="line"><span class="lineno">  433</span>                            <span class="keywordflow">if</span> key == <span class="stringliteral">&quot;\x08&quot;</span>:</div>
+<div class="line"><span class="lineno">  434</span>                                <span class="keywordflow">if</span> _func <span class="keywordflow">is</span> <span class="keywordflow">not</span> <span class="keywordtype">None</span> <span class="keywordflow">and</span> function[_func] == <span class="stringliteral">&quot;help&quot;</span>:</div>
+<div class="line"><span class="lineno">  435</span>                                    vstup = ikey + _func[:-1]</div>
+<div class="line"><span class="lineno">  436</span>                                    _func = <span class="keywordtype">None</span></div>
+<div class="line"><span class="lineno">  437</span>                                <span class="keywordflow">else</span>:</div>
+<div class="line"><span class="lineno">  438</span>                                    vstup = vstup[0:-1]</div>
+<div class="line"><span class="lineno">  439</span>                                <span class="keywordflow">if</span> vstup == <span class="stringliteral">&quot;&quot;</span>:</div>
+<div class="line"><span class="lineno">  440</span>                                    vstup = <span class="stringliteral">&quot;:&quot;</span></div>
+<div class="line"><span class="lineno">  441</span>                                string(y, x + len(vstup), <span class="stringliteral">&quot;&quot;</span>)</div>
+<div class="line"><span class="lineno">  442</span>                            <span class="keywordflow">elif</span> key == <span class="stringliteral">&quot;KEY_BTAB&quot;</span>:</div>
+<div class="line"><span class="lineno">  443</span>                                <span class="keywordflow">if</span> _func == <span class="stringliteral">&quot;help&quot;</span>:</div>
+<div class="line"><span class="lineno">  444</span>                                    <span class="keywordflow">if</span> vstup[-1] <span class="keywordflow">in</span> [<span class="stringliteral">&quot;\t&quot;</span>, <span class="stringliteral">&quot; &quot;</span>]:</div>
+<div class="line"><span class="lineno">  445</span>                                        vstup = vstup[:-1]</div>
+<div class="line"><span class="lineno">  446</span>                                        <span class="keywordflow">while</span> vstup[-1] == <span class="stringliteral">&quot; &quot;</span>:</div>
+<div class="line"><span class="lineno">  447</span>                                            vstup = vstup[:-1]</div>
+<div class="line"><span class="lineno">  448</span>                            <span class="keywordflow">elif</span> key == <span class="stringliteral">&quot;KEY_A2&quot;</span>:</div>
+<div class="line"><span class="lineno">  449</span>                                <span class="keywordflow">pass</span></div>
+<div class="line"><span class="lineno">  450</span>                            <span class="keywordflow">elif</span> key == <span class="stringliteral">&quot;KEY_B3&quot;</span>:</div>
+<div class="line"><span class="lineno">  451</span>                                <span class="keywordflow">if</span> _func == <span class="stringliteral">&quot;help&quot;</span>:</div>
+<div class="line"><span class="lineno">  452</span>                                    vstup += <span class="stringliteral">&quot;\t&quot;</span></div>
+<div class="line"><span class="lineno">  453</span>                                    key = <span class="stringliteral">&quot;\t&quot;</span></div>
+<div class="line"><span class="lineno">  454</span>                            <span class="keywordflow">elif</span> key == <span class="stringliteral">&quot;KEY_B1&quot;</span>:</div>
+<div class="line"><span class="lineno">  455</span>                                <span class="keywordflow">if</span> _func == <span class="stringliteral">&quot;help&quot;</span>:</div>
+<div class="line"><span class="lineno">  456</span>                                    <span class="keywordflow">if</span> vstup[-1] <span class="keywordflow">in</span> [<span class="stringliteral">&quot;\t&quot;</span>, <span class="stringliteral">&quot; &quot;</span>]:</div>
+<div class="line"><span class="lineno">  457</span>                                        vstup = vstup[:-1]</div>
+<div class="line"><span class="lineno">  458</span>                                        <span class="keywordflow">while</span> vstup[-1] == <span class="stringliteral">&quot; &quot;</span>:</div>
+<div class="line"><span class="lineno">  459</span>                                            vstup = vstup[:-1]</div>
+<div class="line"><span class="lineno">  460</span>                                        key = <span class="stringliteral">&quot;KEY_BTAB&quot;</span></div>
+<div class="line"><span class="lineno">  461</span>                            <span class="keywordflow">elif</span> key == <span class="stringliteral">&quot;KEY_C2&quot;</span>:</div>
+<div class="line"><span class="lineno">  462</span>                                <span class="keywordflow">pass</span></div>
+<div class="line"><span class="lineno">  463</span>                            <span class="keywordflow">elif</span> key.startswith(<span class="stringliteral">&quot;KEY_F(&quot;</span>):</div>
+<div class="line"><span class="lineno">  464</span>                                <span class="keywordflow">if</span> key.endswith(<span class="stringliteral">&quot;)&quot;</span>):</div>
+<div class="line"><span class="lineno">  465</span>                                    f_number = key[-2]</div>
+<div class="line"><span class="lineno">  466</span>                                    <span class="keywordflow">pass</span></div>
+<div class="line"><span class="lineno">  467</span>                                <span class="keywordflow">pass</span></div>
+<div class="line"><span class="lineno">  468</span>                            <span class="keywordflow">else</span>:</div>
+<div class="line"><span class="lineno">  469</span>                                vstup += key</div>
+<div class="line"><span class="lineno">  470</span>                        <span class="keywordflow">else</span>:</div>
+<div class="line"><span class="lineno">  471</span>                            vstup = vstup.strip() + <span class="stringliteral">&quot; &quot;</span></div>
+<div class="line"><span class="lineno">  472</span>                    <span class="keywordflow">if</span> key == ikey:</div>
+<div class="line"><span class="lineno">  473</span>                        <span class="keywordflow">if</span> vstup == ikey * 2:</div>
+<div class="line"><span class="lineno">  474</span>                            inp = <span class="keyword">False</span></div>
+<div class="line"><span class="lineno">  475</span>                            konecna = <span class="keyword">True</span></div>
+<div class="line"><span class="lineno">  476</span>                        <span class="keywordflow">elif</span> vstup == <span class="stringliteral">&quot;&quot;</span>:</div>
+<div class="line"><span class="lineno">  477</span>                            inp = <span class="keyword">True</span></div>
+<div class="line"><span class="lineno">  478</span>                            vstup += ikey</div>
+<div class="line"><span class="lineno">  479</span>                            <span class="comment"># curses.nocbreak()</span></div>
+<div class="line"><span class="lineno">  480</span>                            <span class="comment"># stdscr.keypad(False)</span></div>
+<div class="line"><span class="lineno">  481</span>                            curses.echo()</div>
+<div class="line"><span class="lineno">  482</span>                            <span class="keywordflow">if</span> border:</div>
+<div class="line"><span class="lineno">  483</span>                                string(y + 1, x, ikey)</div>
+<div class="line"><span class="lineno">  484</span>                            <span class="keywordflow">else</span>:</div>
+<div class="line"><span class="lineno">  485</span>                                string(y, x, ikey)</div>
+<div class="line"><span class="lineno">  486</span>                    <span class="keywordflow">if</span> key == <span class="stringliteral">&quot;\n&quot;</span>:</div>
+<div class="line"><span class="lineno">  487</span>                        <span class="keywordflow">if</span> _func <span class="keywordflow">is</span> <span class="keywordflow">not</span> <span class="keywordtype">None</span>:</div>
+<div class="line"><span class="lineno">  488</span>                            <span class="keywordflow">if</span> function[_func] == <span class="stringliteral">&quot;help&quot;</span>:</div>
+<div class="line"><span class="lineno">  489</span>                                vstup = <span class="stringliteral">&quot;:&quot;</span> + __func_to_use + <span class="stringliteral">&quot; &quot;</span></div>
+<div class="line"><span class="lineno">  490</span>                            <span class="keywordflow">else</span>:</div>
+<div class="line"><span class="lineno">  491</span>                                konecna = <span class="keyword">True</span></div>
+<div class="line"><span class="lineno">  492</span>                                inp = <span class="keyword">False</span></div>
+<div class="line"><span class="lineno">  493</span>                                curses.cbreak()</div>
+<div class="line"><span class="lineno">  494</span>                                stdscr.keypad(<span class="keyword">True</span>)</div>
+<div class="line"><span class="lineno">  495</span>                                curses.noecho()</div>
+<div class="line"><span class="lineno">  496</span>                            <span class="keywordflow">if</span> border:</div>
+<div class="line"><span class="lineno">  497</span>                                string(y + 1, x, int(COLS - 1 - x) * <span class="stringliteral">&quot;_&quot;</span>)</div>
+<div class="line"><span class="lineno">  498</span>                                string(y - 1, x, COLS * <span class="stringliteral">&quot;_&quot;</span>)</div>
+<div class="line"><span class="lineno">  499</span>                            <span class="keywordflow">else</span>:</div>
+<div class="line"><span class="lineno">  500</span>                                string(y, x, int(COLS - 1 - x) * <span class="stringliteral">&quot; &quot;</span>)</div>
+<div class="line"><span class="lineno">  501</span>                                string(y - 1, x, COLS * <span class="stringliteral">&quot; &quot;</span>)</div>
+<div class="line"><span class="lineno">  502</span>                    <span class="keywordflow">if</span> konecna:</div>
+<div class="line"><span class="lineno">  503</span>                        limit -= 1</div>
+<div class="line"><span class="lineno">  504</span>                        <span class="keywordflow">if</span> <span class="keywordflow">not</span> ikey == <span class="stringliteral">&quot;&quot;</span>:</div>
+<div class="line"><span class="lineno">  505</span>                            vstup = vstup[1:-1]</div>
+<div class="line"><span class="lineno">  506</span>                        <span class="keywordflow">else</span>:</div>
+<div class="line"><span class="lineno">  507</span>                            vstup = vstup[:-1]</div>
+<div class="line"><span class="lineno">  508</span>                        <span class="keywordflow">for</span> func <span class="keywordflow">in</span> function:</div>
+<div class="line"><span class="lineno">  509</span>                            to_func = <span class="keyword">False</span></div>
+<div class="line"><span class="lineno">  510</span>                            func_args = <span class="keywordtype">None</span></div>
+<div class="line"><span class="lineno">  511</span>                            <span class="keywordflow">if</span> isinstance(function[func], list):</div>
+<div class="line"><span class="lineno">  512</span>                                <span class="keywordflow">if</span> len(function[func]) == 2:</div>
+<div class="line"><span class="lineno">  513</span>                                    func_args = function[func][1]</div>
+<div class="line"><span class="lineno">  514</span>                                    <span class="keywordflow">if</span> <span class="keywordflow">not</span> isinstance(func_args, list):</div>
+<div class="line"><span class="lineno">  515</span>                                        <span class="keywordflow">raise</span> ValueError()</div>
+<div class="line"><span class="lineno">  516</span>                                    <span class="keywordflow">if</span> func == vstup.split(<span class="stringliteral">&quot; &quot;</span>)[0]:</div>
+<div class="line"><span class="lineno">  517</span>                                        <span class="keywordflow">if</span> function[func][1][0] == <span class="stringliteral">&quot;args&quot;</span>:</div>
+<div class="line"><span class="lineno">  518</span>                                            func_args = vstup[len(func) :].split(<span class="stringliteral">&quot; &quot;</span>)</div>
+<div class="line"><span class="lineno">  519</span>                                            func_args = list(</div>
+<div class="line"><span class="lineno">  520</span>                                                filter((<span class="stringliteral">&quot;&quot;</span>).__ne__, func_args)</div>
+<div class="line"><span class="lineno">  521</span>                                            )</div>
+<div class="line"><span class="lineno">  522</span>                                        command = function[func][0]</div>
+<div class="line"><span class="lineno">  523</span>                                        to_func = <span class="keyword">True</span></div>
+<div class="line"><span class="lineno">  524</span>                                        <span class="keywordflow">try</span>:</div>
+<div class="line"><span class="lineno">  525</span>                                            ids[func]</div>
+<div class="line"><span class="lineno">  526</span>                                        <span class="keywordflow">except</span> KeyError:</div>
+<div class="line"><span class="lineno">  527</span>                                            ids[func] = get_id()</div>
+<div class="line"><span class="lineno">  528</span>                                <span class="keywordflow">elif</span> (</div>
+<div class="line"><span class="lineno">  529</span>                                    func == vstup[function[func][0] : function[func][1]]</div>
+<div class="line"><span class="lineno">  530</span>                                ):</div>
+<div class="line"><span class="lineno">  531</span>                                    to_func = <span class="keyword">True</span></div>
+<div class="line"><span class="lineno">  532</span>                                    <span class="keywordflow">if</span> callable(function[func][2]):</div>
+<div class="line"><span class="lineno">  533</span>                                        command = function[func][2]</div>
+<div class="line"><span class="lineno">  534</span>                                    <span class="keywordflow">elif</span> len(function[func][2]) == 2:</div>
+<div class="line"><span class="lineno">  535</span>                                        <span class="keywordflow">if</span> function[func][2][1][0] == <span class="stringliteral">&quot;args&quot;</span>:</div>
+<div class="line"><span class="lineno">  536</span>                                            <span class="keywordflow">try</span>:</div>
+<div class="line"><span class="lineno">  537</span>                                                func_args = vstup.split(<span class="stringliteral">&quot; &quot;</span>, 1)[</div>
+<div class="line"><span class="lineno">  538</span>                                                    1</div>
+<div class="line"><span class="lineno">  539</span>                                                ].split(<span class="stringliteral">&quot; &quot;</span>)</div>
+<div class="line"><span class="lineno">  540</span>                                            <span class="keywordflow">except</span> IndexError:</div>
+<div class="line"><span class="lineno">  541</span>                                                <span class="keywordflow">if</span> nof:</div>
+<div class="line"><span class="lineno">  542</span>                                                    func_args = vstup</div>
+<div class="line"><span class="lineno">  543</span>                                                <span class="keywordflow">else</span>:</div>
+<div class="line"><span class="lineno">  544</span>                                                    <span class="keywordflow">raise</span> ValueError</div>
+<div class="line"><span class="lineno">  545</span>                                            func_args = list(</div>
+<div class="line"><span class="lineno">  546</span>                                                filter((<span class="stringliteral">&quot;&quot;</span>).__ne__, func_args)</div>
+<div class="line"><span class="lineno">  547</span>                                            )</div>
+<div class="line"><span class="lineno">  548</span>                                        <span class="keywordflow">else</span>:</div>
+<div class="line"><span class="lineno">  549</span>                                            func_args = function[func][2][1]</div>
+<div class="line"><span class="lineno">  550</span>                                            <span class="keywordflow">if</span> <span class="keywordflow">not</span> isinstance(func_args, list):</div>
+<div class="line"><span class="lineno">  551</span>                                                <span class="keywordflow">raise</span> ValueError()</div>
+<div class="line"><span class="lineno">  552</span>                                        command = function[func][2][0]</div>
+<div class="line"><span class="lineno">  553</span>                                    <span class="keywordflow">else</span>:</div>
+<div class="line"><span class="lineno">  554</span>                                        command = function[func][2]</div>
+<div class="line"><span class="lineno">  555</span>                                    <span class="keywordflow">try</span>:</div>
+<div class="line"><span class="lineno">  556</span>                                        ids[func]</div>
+<div class="line"><span class="lineno">  557</span>                                    <span class="keywordflow">except</span> KeyError:</div>
+<div class="line"><span class="lineno">  558</span>                                        ids[func] = get_id()</div>
+<div class="line"><span class="lineno">  559</span>                            <span class="keywordflow">else</span>:</div>
+<div class="line"><span class="lineno">  560</span>                                <span class="keywordflow">if</span> func == vstup:</div>
+<div class="line"><span class="lineno">  561</span>                                    <span class="keywordflow">try</span>:</div>
+<div class="line"><span class="lineno">  562</span>                                        ids[func]</div>
+<div class="line"><span class="lineno">  563</span>                                    <span class="keywordflow">except</span> KeyError:</div>
+<div class="line"><span class="lineno">  564</span>                                        ids[func] = get_id()</div>
+<div class="line"><span class="lineno">  565</span>                                    to_func = <span class="keyword">True</span></div>
+<div class="line"><span class="lineno">  566</span>                                    command = function[func]</div>
+<div class="line"><span class="lineno">  567</span> </div>
+<div class="line"><span class="lineno">  568</span>                            <span class="keywordflow">if</span> to_func:</div>
+<div class="line"><span class="lineno">  569</span>                                <span class="keywordflow">if</span> command == <span class="stringliteral">&quot;break&quot;</span>:</div>
+<div class="line"><span class="lineno">  570</span>                                    end = <span class="keyword">True</span></div>
+<div class="line"><span class="lineno">  571</span>                                    <span class="keywordflow">break</span></div>
+<div class="line"><span class="lineno">  572</span>                                <span class="keywordflow">if</span> command == <span class="stringliteral">&quot;help&quot;</span>:</div>
+<div class="line"><span class="lineno">  573</span>                                    <span class="keywordflow">continue</span></div>
+<div class="line"><span class="lineno">  574</span>                                <span class="keywordflow">if</span> command == <span class="stringliteral">&quot;reset&quot;</span>:</div>
+<div class="line"><span class="lineno">  575</span>                                    <span class="keywordflow">try</span>:</div>
+<div class="line"><span class="lineno">  576</span>                                        self.reset(</div>
+<div class="line"><span class="lineno">  577</span>                                            history[</div>
+<div class="line"><span class="lineno">  578</span>                                                history_number - 2 - history_in_row * 2</div>
+<div class="line"><span class="lineno">  579</span>                                            ]</div>
+<div class="line"><span class="lineno">  580</span>                                        )</div>
+<div class="line"><span class="lineno">  581</span>                                        history_in_row += 1</div>
+<div class="line"><span class="lineno">  582</span>                                        func_reset = <span class="keyword">True</span></div>
+<div class="line"><span class="lineno">  583</span>                                    <span class="keywordflow">except</span> KeyError:</div>
+<div class="line"><span class="lineno">  584</span>                                        <span class="keywordflow">pass</span></div>
+<div class="line"><span class="lineno">  585</span>                                <span class="keywordflow">else</span>:</div>
+<div class="line"><span class="lineno">  586</span>                                    <span class="keywordflow">if</span> last_command == command:</div>
+<div class="line"><span class="lineno">  587</span>                                        self.restore(last_command_history[ids[func]])</div>
+<div class="line"><span class="lineno">  588</span>                                    history_in_row = 0</div>
+<div class="line"><span class="lineno">  589</span>                                    in_func = <span class="keyword">True</span></div>
+<div class="line"><span class="lineno">  590</span>                                    current_id = func</div>
+<div class="line"><span class="lineno">  591</span>                                    <span class="keywordflow">if</span> func_args <span class="keywordflow">is</span> <span class="keywordflow">not</span> <span class="keywordtype">None</span>:</div>
+<div class="line"><span class="lineno">  592</span>                                        command(*func_args)</div>
+<div class="line"><span class="lineno">  593</span>                                    <span class="keywordflow">else</span>:</div>
+<div class="line"><span class="lineno">  594</span>                                        command()</div>
+<div class="line"><span class="lineno">  595</span>                                    last_command = command</div>
+<div class="line"><span class="lineno">  596</span>                                    in_func = <span class="keyword">False</span></div>
+<div class="line"><span class="lineno">  597</span>                                self.add_history(window)</div>
+<div class="line"><span class="lineno">  598</span>                        func_args = <span class="keywordtype">None</span></div>
+<div class="line"><span class="lineno">  599</span>                        vstup = <span class="stringliteral">&quot;&quot;</span></div>
+<div class="line"><span class="lineno">  600</span>                    <span class="keywordflow">if</span> limit == 0:</div>
+<div class="line"><span class="lineno">  601</span>                        <span class="keywordflow">break</span></div>
+<div class="line"><span class="lineno">  602</span>                    <span class="keywordflow">if</span> end:</div>
+<div class="line"><span class="lineno">  603</span>                        <span class="keywordflow">break</span></div>
+<div class="line"><span class="lineno">  604</span>                self.add_history(window)</div>
+<div class="line"><span class="lineno">  605</span>        <span class="keywordflow">return</span> self</div>
+<div class="line"><span class="lineno">  606</span> </div>
 </div><!-- fragment --><div id="dynsection-2" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-2-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
 <div id="dynsection-2-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-2-content" class="dyncontent" style="display:none;">
 <div class="center"><img src="../../df/dc0/classcurses__builder_1_1builder_a7abf922e7bb2ef151bb5c7a1086bbd6a_cgraph.png" border="0" usemap="#adf/dc0/classcurses__builder_1_1builder_a7abf922e7bb2ef151bb5c7a1086bbd6a_cgraph" alt=""/></div>
+<map name="adf/dc0/classcurses__builder_1_1builder_a7abf922e7bb2ef151bb5c7a1086bbd6a_cgraph" id="adf/dc0/classcurses__builder_1_1builder_a7abf922e7bb2ef151bb5c7a1086bbd6a_cgraph">
+<area shape="rect" title=" " alt="" coords="5,138,184,165"/>
+<area shape="rect" href="../../df/dc0/classcurses__builder_1_1builder.html#a880c4cef30ad4afc828da33d5dbedb61" title=" " alt="" coords="471,25,643,67"/>
+<area shape="rect" href="../../d0/d70/namespacecurses__builder.html#aff43af63a0bd48b2618742929bf6dc12" title=" " alt="" coords="255,37,400,63"/>
+<area shape="rect" href="../../df/dc0/classcurses__builder_1_1builder.html#aeb5d535168cddf2f5fd605f9829d9e0c" title=" " alt="" coords="237,87,418,114"/>
+<area shape="rect" href="../../d0/d70/namespacecurses__builder.html#aa6d6a336afddb8314b70939716b88ed1" title=" " alt="" coords="487,138,628,165"/>
+<area shape="rect" href="../../df/dc0/classcurses__builder_1_1builder.html#aab9bc3c66fbac9d7e7bdc61e60230307" title=" " alt="" coords="232,189,423,215"/>
+<area shape="rect" href="../../d0/d70/namespacecurses__builder.html#a1c468db6c9d17f11b454be5bad12e111" title=" " alt="" coords="253,239,402,282"/>
+<area shape="rect" href="../../d0/d70/namespacecurses__builder.html#a261efd3bf03b9a92f3eb42cb6aae6ad1" title=" " alt="" coords="253,306,402,349"/>
+</map>
 </div>
 
 </div>
@@ -727,6 +835,11 @@ Public Attributes</h2></td></tr>
 </div>
 <div id="dynsection-3-content" class="dyncontent" style="display:none;">
 <div class="center"><img src="../../df/dc0/classcurses__builder_1_1builder_aeb5d535168cddf2f5fd605f9829d9e0c_cgraph.png" border="0" usemap="#adf/dc0/classcurses__builder_1_1builder_aeb5d535168cddf2f5fd605f9829d9e0c_cgraph" alt=""/></div>
+<map name="adf/dc0/classcurses__builder_1_1builder_aeb5d535168cddf2f5fd605f9829d9e0c_cgraph" id="adf/dc0/classcurses__builder_1_1builder_aeb5d535168cddf2f5fd605f9829d9e0c_cgraph">
+<area shape="rect" title=" " alt="" coords="5,43,186,69"/>
+<area shape="rect" href="../../df/dc0/classcurses__builder_1_1builder.html#a880c4cef30ad4afc828da33d5dbedb61" title=" " alt="" coords="234,5,406,48"/>
+<area shape="rect" href="../../d0/d70/namespacecurses__builder.html#aa6d6a336afddb8314b70939716b88ed1" title=" " alt="" coords="249,72,391,99"/>
+</map>
 </div>
 <div id="dynsection-4" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-4-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
@@ -734,6 +847,10 @@ Public Attributes</h2></td></tr>
 </div>
 <div id="dynsection-4-content" class="dyncontent" style="display:none;">
 <div class="center"><img src="../../df/dc0/classcurses__builder_1_1builder_aeb5d535168cddf2f5fd605f9829d9e0c_icgraph.png" border="0" usemap="#adf/dc0/classcurses__builder_1_1builder_aeb5d535168cddf2f5fd605f9829d9e0c_icgraph" alt=""/></div>
+<map name="adf/dc0/classcurses__builder_1_1builder_aeb5d535168cddf2f5fd605f9829d9e0c_icgraph" id="adf/dc0/classcurses__builder_1_1builder_aeb5d535168cddf2f5fd605f9829d9e0c_icgraph">
+<area shape="rect" title=" " alt="" coords="232,5,412,32"/>
+<area shape="rect" href="../../df/dc0/classcurses__builder_1_1builder.html#a7abf922e7bb2ef151bb5c7a1086bbd6a" title=" " alt="" coords="5,5,184,32"/>
+</map>
 </div>
 
 </div>
@@ -781,6 +898,10 @@ Public Attributes</h2></td></tr>
 </div>
 <div id="dynsection-5-content" class="dyncontent" style="display:none;">
 <div class="center"><img src="../../df/dc0/classcurses__builder_1_1builder_aab9bc3c66fbac9d7e7bdc61e60230307_cgraph.png" border="0" usemap="#adf/dc0/classcurses__builder_1_1builder_aab9bc3c66fbac9d7e7bdc61e60230307_cgraph" alt=""/></div>
+<map name="adf/dc0/classcurses__builder_1_1builder_aab9bc3c66fbac9d7e7bdc61e60230307_cgraph" id="adf/dc0/classcurses__builder_1_1builder_aab9bc3c66fbac9d7e7bdc61e60230307_cgraph">
+<area shape="rect" title=" " alt="" coords="5,5,197,32"/>
+<area shape="rect" href="../../d0/d70/namespacecurses__builder.html#aa6d6a336afddb8314b70939716b88ed1" title=" " alt="" coords="245,5,386,32"/>
+</map>
 </div>
 <div id="dynsection-6" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-6-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
@@ -788,6 +909,10 @@ Public Attributes</h2></td></tr>
 </div>
 <div id="dynsection-6-content" class="dyncontent" style="display:none;">
 <div class="center"><img src="../../df/dc0/classcurses__builder_1_1builder_aab9bc3c66fbac9d7e7bdc61e60230307_icgraph.png" border="0" usemap="#adf/dc0/classcurses__builder_1_1builder_aab9bc3c66fbac9d7e7bdc61e60230307_icgraph" alt=""/></div>
+<map name="adf/dc0/classcurses__builder_1_1builder_aab9bc3c66fbac9d7e7bdc61e60230307_icgraph" id="adf/dc0/classcurses__builder_1_1builder_aab9bc3c66fbac9d7e7bdc61e60230307_icgraph">
+<area shape="rect" title=" " alt="" coords="232,5,423,32"/>
+<area shape="rect" href="../../df/dc0/classcurses__builder_1_1builder.html#a7abf922e7bb2ef151bb5c7a1086bbd6a" title=" " alt="" coords="5,5,184,32"/>
+</map>
 </div>
 
 </div>
@@ -818,7 +943,7 @@ Public Attributes</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../d0/d70/namespacecurses__builder.html">curses_builder</a></li><li class="navelem"><a class="el" href="../../df/dc0/classcurses__builder_1_1builder.html">builder</a></li>
-    <li class="footer">Generated on Fri Jun 16 2023 16:42:56 for Data-Dynamics by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.6 </li>
+    <li class="footer">Generated on Mon Jun 19 2023 13:29:20 for Data-Dynamics by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.6 </li>
   </ul>
 </div>
 </body>

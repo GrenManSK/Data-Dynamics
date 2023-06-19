@@ -403,18 +403,29 @@
       <Scope>main</Scope>
     </TokenIdentifier>
     <Path>d2/dc1/namespacemain.html</Path>
-    <Anchor>afc0df0754192c3af1a4b56c7d0c0f46c</Anchor>
+    <Anchor>a5d87b187701eea0d42c7af5222c11b34</Anchor>
     <DeclaredIn>main.py</DeclaredIn>
   </Token>
   <Token>
     <TokenIdentifier>
-      <Name>add_anime_to_dat</Name>
+      <Name>add_watch</Name>
       <APILanguage>python</APILanguage>
       <Type>func</Type>
       <Scope>main</Scope>
     </TokenIdentifier>
     <Path>d2/dc1/namespacemain.html</Path>
-    <Anchor>aebff84e3f39ceb37dd8e508ffdffe172</Anchor>
+    <Anchor>abc87f81ad3d73f53f1b10e26569993d6</Anchor>
+    <DeclaredIn>main.py</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>add_watch_to_dat</Name>
+      <APILanguage>python</APILanguage>
+      <Type>func</Type>
+      <Scope>main</Scope>
+    </TokenIdentifier>
+    <Path>d2/dc1/namespacemain.html</Path>
+    <Anchor>a5480c9afd1e0b14ab9c23f69903f7015</Anchor>
     <DeclaredIn>main.py</DeclaredIn>
   </Token>
   <Token>
@@ -496,6 +507,17 @@
   </Token>
   <Token>
     <TokenIdentifier>
+      <Name>delete</Name>
+      <APILanguage>python</APILanguage>
+      <Type>func</Type>
+      <Scope>main</Scope>
+    </TokenIdentifier>
+    <Path>d2/dc1/namespacemain.html</Path>
+    <Anchor>a73c31d1a77cd0b53cba56667e9bf6800</Anchor>
+    <DeclaredIn>main.py</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
       <Name>func_reset</Name>
       <APILanguage>python</APILanguage>
       <Type>data</Type>
@@ -536,6 +558,17 @@
     </TokenIdentifier>
     <Path>d2/dc1/namespacemain.html</Path>
     <Anchor>a1e678147cc6f539ad7102e8881661fb5</Anchor>
+    <DeclaredIn>main.py</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>get_studios</Name>
+      <APILanguage>python</APILanguage>
+      <Type>func</Type>
+      <Scope>main</Scope>
+    </TokenIdentifier>
+    <Path>d2/dc1/namespacemain.html</Path>
+    <Anchor>a63f327b3f1de4012f744106fa771d86c</Anchor>
     <DeclaredIn>main.py</DeclaredIn>
   </Token>
   <Token>
