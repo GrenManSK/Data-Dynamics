@@ -301,7 +301,7 @@ class builder:
                                     _return = search_engine(_vstup[arg_num + 1], _help)
                                 string(y - 1, COLS - 14, "              ")
                                 if _return is not None:
-                                    if _in_tab_num > len(_return):
+                                    if _in_tab_num >= len(_return):
                                         _in_tab_num = 0
                                     vstup = (
                                         vstup.rsplit(" ", 1)[0]
