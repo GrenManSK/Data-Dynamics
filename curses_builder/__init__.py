@@ -275,6 +275,7 @@ class builder:
                             if i != "":
                                 _increment += count
                                 count = 0
+                        _increment -= 1
                         if increment == 1:
                             _vstup.append("")
                         arg_num = len(_vstup) - 2
@@ -288,6 +289,7 @@ class builder:
                                 sum([len(i) for i in vstup.split(" ")[:-1]])
                                 + 2
                                 + _increment
+                                + arg_num
                             )
                         try:
                             if key in ["\t", "KEY_BTAB"]:
@@ -392,18 +394,29 @@ class builder:
                                     - more_posun
                                     - posun
                                     - len(function[_func][3][arg_num])
+                                    - _increment
                                     - 3
                                 ]
                             if more_posun < 0:
                                 more_posun = 0
-                            string(
-                                y - 1,
-                                x
-                                + posun
-                                + len(function[_func][3][arg_num])
-                                + more_posun,
-                                more_arg,
-                            )
+                            if isinstance(function[_func][3][arg_num], dict):
+                                string(
+                                    y - 1,
+                                    x
+                                    + posun
+                                    + len(function[_func][3][arg_num][main_arg])
+                                    + more_posun,
+                                    more_arg,
+                                )
+                            else:
+                                string(
+                                    y - 1,
+                                    x
+                                    + posun
+                                    + len(function[_func][3][arg_num])
+                                    + more_posun,
+                                    more_arg,
+                                )
                             string(y, x + len(vstup), "")
                         except IndexError:
                             pass

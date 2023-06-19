@@ -116,7 +116,7 @@ def main(stdscr) -> None:
                     [
                         [],
                         get_animes(),
-                        [],
+                        ["https://"],
                         get_animes(),
                         get_animes(),
                         [],
@@ -129,7 +129,7 @@ def main(stdscr) -> None:
                         [],
                         [],
                         [],
-                        [],
+                        ["https://"],
                         get_studios(),
                     ],
                 ],
@@ -143,10 +143,10 @@ def main(stdscr) -> None:
                             "anime": "id",
                             "name": "id",
                             "characters": "id",
-                            "staff": "anime_id",
+                            "staff": "name",
                             "watchlist": "id",
                         },
-                        {"staff": "name", "watchlist": "anime_id"},
+                        {"staff": "anime_id", "watchlist": "anime_id"},
                     ],
                     [
                         ["watchlist", "anime", "characters", "staff", "name"],
@@ -176,8 +176,8 @@ def delete(*args):
         success = True
     elif args[0] == "staff":
         parser = argparse.ArgumentParser()
-        parser.add_argument("anime_id")
         parser.add_argument("name")
+        parser.add_argument("anime_id")
         args = parser.parse_args(args[1:])
 
         server.execute(
