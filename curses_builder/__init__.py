@@ -207,7 +207,7 @@ class builder:
                     else:
                         string(y - 1, x, (COLS - x) * " ")
                     if len(vstup) > COLS:
-                        string(y, x, vstup[abs(COLS - len(vstup)):])
+                        string(y, x, vstup[abs(COLS - len(vstup)) :])
                     else:
                         string(y, x, vstup)
                     func_reset = False
