@@ -241,7 +241,7 @@ def add_anime(*args):
 
     args = parser.parse_args(args)
 
-    id = args.id
+    anime_id = args.id
     title = args.title
     url = args.url
     ENG_title = args.ENG_title
@@ -260,7 +260,7 @@ def add_anime(*args):
     studios = args.studios
 
     server.execute(
-        f"INSERT INTO `anime` (`id`, `title`, `url`, `ENG_title`, `JA_title`, `score`, `rating`, `genres`, `rank`, `aired`, `duration`, `episodes`, `favorites`, `licensors`, `source`, `image_url`, `studios`) VALUES ('{id}', '{title}', '{url}', '{ENG_title}', '{JA_title}', '{score}', '{rating}', '{genres}', '{rank}', '{aired}', '{duration}', '{episodes}', '{favorites}', '{licensors}', '{source}', '{image_url}', '{studios}')"
+        f"INSERT INTO `anime` (`id`, `title`, `url`, `ENG_title`, `JA_title`, `score`, `rating`, `genres`, `rank`, `aired`, `duration`, `episodes`, `favorites`, `licensors`, `source`, `image_url`, `studios`) VALUES ('anime_{id}', '{title}', '{url}', '{ENG_title}', '{JA_title}', '{score}', '{rating}', '{genres}', '{rank}', '{aired}', '{duration}', '{episodes}', '{favorites}', '{licensors}', '{source}', '{image_url}', '{studios}')"
     )
 
 
@@ -304,18 +304,16 @@ def _search_char(*args):
         builder(component(["Failed | IndexError"], 0, 0, border=True)).build()
         return
 
-    id = get_id(anime)
+    anime_id = get_id(anime)
 
     characters = server.execute(
-        f"SELECT c.name, c.role, c.voice_actor FROM characters AS c JOIN anime AS a ON a.id=c.anime_id WHERE a.id='{id}'",
+        f"SELECT c.name, c.role, c.voice_actor FROM characters AS c JOIN anime AS a ON a.id=c.anime_id WHERE a.id='{anime_id}'",
         info=False,
     )
 
     _characters = []
     for i in characters:
-        __staff = ""
-        for j in i:
-            __staff += f" {j} |"
+        __staff = "".join(f" {j} |" for j in i)
         _characters.append(__staff[:-1])
 
     builder(component([*_characters], 0, 0, border=True)).build()
@@ -333,10 +331,7 @@ def search_char(*args):
 
     animes = get_animes()
     _return = search_engine(anime, animes)
-    res = []
-    for times, i in enumerate(_return):
-        res.append(f"{times} - {i}")
-
+    res = [f"{times} - {i}" for times, i in enumerate(_return)]
     if len(res) == 1:
         _search_char("0")
     else:
@@ -375,18 +370,16 @@ def _search_staff(*args):
         builder(component(["Failed | IndexError"], 0, 0, border=True)).build()
         return
 
-    id = get_id(anime)
+    anime_id = get_id(anime)
 
     staff = server.execute(
-        f"SELECT s.name, s.role FROM staff AS s JOIN anime AS a ON a.id=s.anime_id WHERE a.id='{id}'",
+        f"SELECT s.name, s.role FROM staff AS s JOIN anime AS a ON a.id=s.anime_id WHERE a.id='{anime_id}'",
         info=False,
     )
 
     _staff = []
     for i in staff:
-        __staff = ""
-        for j in i:
-            __staff += f" {j} |"
+        __staff = "".join(f" {j} |" for j in i)
         _staff.append(__staff[:-1])
 
     builder(component([*_staff], 0, 0, border=True)).build()
@@ -404,9 +397,7 @@ def search_staff(*args):
 
     animes = get_animes()
     _return = search_engine(anime, animes)
-    res = []
-    for times, i in enumerate(_return):
-        res.append(f"{times} - {i}")
+    res = [f"{times} - {i}" for times, i in enumerate(_return)]
     if len(res) == 1:
         _search_staff("0")
     else:
@@ -442,13 +433,13 @@ def show_anime() -> None:
 
 def logout() -> None:
     global ACCOUNT_NAME
-    global id
+    global user_id
     global PRIVILEGE
     if ACCOUNT_NAME is None:
         builder(component(["You are not logged in"], 0, 0, border=True)).build()
         return
     ACCOUNT_NAME = None
-    id = None
+    user_id = None
     PRIVILEGE = None
     builder(component(["You are logged out"], 0, 0, border=True)).build()
 
@@ -476,20 +467,23 @@ def login(*args) -> None:
             component(["Failed | Wrong username or password"], 0, 0, border=True)
         ).build()
     if len(content) == 1:
-        assert isinstance(content[0][0], int), "Account id should be an integer"
-        assert (
-            isinstance(content[0][1], str) and content[0][1] in PRIVILEGES
-        ), "Invalid privilege"
-        ACCOUNT_NAME = username
-        ACCOUNT_ID = content[0][0]
-        PRIVILEGE = content[0][1]
-        if PRIVILEGE == "U":
-            priv = "User"
-        elif PRIVILEGE == "A":
-            priv = "Administrator"
-        builder(
-            component([username + " Connected as " + priv], 0, 0, border=True)
-        ).build()
+        success_login(content, username)
+
+
+# TODO Rename this here and in `login`
+def success_login(content, username):
+    assert isinstance(content[0][0], int), "Account id should be an integer"
+    assert (
+        isinstance(content[0][1], str) and content[0][1] in PRIVILEGES
+    ), "Invalid privilege"
+    ACCOUNT_NAME = username
+    ACCOUNT_ID = content[0][0]
+    PRIVILEGE = content[0][1]
+    if PRIVILEGE == "A":
+        priv = "Administrator"
+    elif PRIVILEGE == "U":
+        priv = "User"
+    builder(component([f"{username} Connected as {priv}"], 0, 0, border=True)).build()
 
 
 def register(*args) -> None:
@@ -509,7 +503,7 @@ def register(*args) -> None:
     assert len(password) > 0, "Password must not be empty"
 
     ACCOUNT_ID = (
-        max([i[0] for i in server.execute("SELECT id FROM name", info=False)]) + 1
+        max(i[0] for i in server.execute("SELECT id FROM name", info=False)) + 1
     )
 
     assert server.execute(
@@ -522,7 +516,7 @@ def register(*args) -> None:
         f"INSERT INTO `name` (`id`, `username`, `joined`, `passw`) VALUES ('{ACCOUNT_ID}', '{username}', '{date}', '{hashlib.sha3_256(bytes(password, encoding='utf-8')).hexdigest()}') ",
         info=False,
     )
-    builder(component([f"Sucess | {username} created"], 0, 0, border=True)).build()
+    builder(component([f"Success | {username} created"], 0, 0, border=True)).build()
 
 
 def add_watch(*args) -> None:
@@ -540,7 +534,7 @@ def add_watch(*args) -> None:
     anime = args.anime.replace("_", " ")
     anime_status = args.status
 
-    if not anime_status in ["completed", "dropped", "watching", "planning"]:
+    if anime_status not in ["completed", "dropped", "watching", "planning"]:
         builder(
             component(
                 [
@@ -555,9 +549,7 @@ def add_watch(*args) -> None:
 
     animes = get_animes()
     _return = search_engine(anime, animes)
-    res = []
-    for times, i in enumerate(_return):
-        res.append(f"{times} - {i}")
+    res = [f"{times} - {i}" for times, i in enumerate(_return)]
     if len(res) == 1:
         add_watch_to_dat("0")
     else:
@@ -602,21 +594,15 @@ def add_watch_to_dat(*args) -> None:
 
     available = not is_available(id)
 
-    if available:
-        server.execute(
-            f"INSERT INTO `watchlist` (`id`, `anime_id`, `status`) VALUES ('{ACCOUNT_ID}', '{id}', '{anime_status}') ",
-            info=False,
-        )
-    elif not available:
+    if not available:
         server.execute(
             f"DELETE FROM watchlist WHERE id='{ACCOUNT_ID}' AND anime_id='{id}'",
             info=False,
         )
-        server.execute(
-            f"INSERT INTO `watchlist` (`id`, `anime_id`, `status`) VALUES ('{ACCOUNT_ID}', '{id}', '{anime_status}') ",
-            info=False,
-        )
-
+    server.execute(
+        f"INSERT INTO `watchlist` (`id`, `anime_id`, `status`) VALUES ('{ACCOUNT_ID}', '{id}', '{anime_status}') ",
+        info=False,
+    )
     builder(
         component(
             [anime, id],
@@ -652,26 +638,18 @@ def search_engine(query, data) -> None | list[str]:
                 results.append(text)
                 break
 
-    if results:
-        if query in results:
-            return [query]
-        return results
-    else:
+    if not results:
         return None
+    return [query] if query in results else results
 
 
 def is_available(id) -> bool:
     global ACCOUNT_ID
     _returned = server.execute(
-        f"SELECT * FROM wachlist WHERE id='{ACCOUNT_ID}' AND anime_id='{id}'",
+        f"SELECT * FROM watchlist WHERE id='{ACCOUNT_ID}' AND anime_id='{id}'",
         info=False,
     )
-    if _returned is None:
-        return True
-    for i in _returned:
-        if len(i) == 0:
-            return True
-    return False
+    return True if _returned is None else any(len(i) == 0 for i in _returned)
 
 
 wrapper(main)
